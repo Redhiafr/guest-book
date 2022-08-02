@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\GuestController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 
@@ -16,4 +17,4 @@ use App\Http\Controllers\HomeController;
 
 // Route::get('/', function () {
 //     return view('index.index');
-Route::get('/', [HomeController::class, 'index'])->name('index.index');
+Route::get('/', [GuestController::class, 'index'])->name('admin.index');
