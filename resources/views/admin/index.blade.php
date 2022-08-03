@@ -8,7 +8,7 @@
         </div>
         <div class="card shadow-none rounded-0 bg-transparent h-auto">
             <div class="card-header border-0 pb-0">
-                <h4 class="text-black">Upcoming Events</h4>
+                <h4 class="text-black">Recent Guest</h4>
             </div>
             <div class="card-body">
                 <div class="media mb-5 align-items-center event-list">
@@ -146,16 +146,40 @@
                                             <div class="modal-dialog modal-lg">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
-                                                        <h5 class="modal-title">Modal title</h5>
+                                                        <h5 class="modal-title">Guest Detail</h5>
                                                         <button type="button" class="btn-close" data-bs-dismiss="modal">
                                                         </button>
                                                     </div>
-                                                    <div class="modal-body">Modal body text goes here.</div>
+                                                    <div class="modal-body">
+                                                        <div class="mb-3">
+                                                            <label for="disabledTextInput">Name</label>
+                                                            <input type="text" id="disabledTextInput" class="form-control"
+                                                                placeholder="{{ $g->nama }}" disabled>
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label for="disabledTextInput">No Telp.</label>
+                                                            <input type="text" id="disabledTextInput" class="form-control"
+                                                                placeholder="{{ $g->telp }}" disabled>
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label for="disabledTextInput">Asal/Instansi</label>
+                                                            <input type="text" id="disabledTextInput" class="form-control"
+                                                                placeholder="{{ $g->instansi }}" disabled>
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label for="disabledTextInput">Alamat</label>
+                                                            <input type="text" id="disabledTextInput" class="form-control"
+                                                                placeholder="{{ $g->alamat }}" disabled>
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label for="disabledTextInput">Keperluan</label>
+                                                            <input type="text" id="disabledTextInput" class="form-control"
+                                                                placeholder="{{ $g->keterangan }}" disabled>
+                                                        </div>
+                                                    </div>
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-danger light"
                                                             data-bs-dismiss="modal">Close</button>
-                                                        <button type="button" class="btn btn-primary">Save
-                                                            changes</button>
                                                     </div>
                                                 </div>
                                             </div>

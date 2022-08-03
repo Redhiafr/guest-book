@@ -54,7 +54,7 @@ function addSwitcher()
 		body.attr('data-theme-version', this.value);
 		
 		if(this.value === 'light'){
-			jQuery(".nav-header .logo-abbr").attr("src", "public/assets/images/logo.png");
+			jQuery(".nav-header .logo-abbr").attr("src", "public/assets/images/logo-2.png");
 			jQuery(".nav-header .logo-compact").attr("src", "public/assets/images/logo-text.png");
 			jQuery(".nav-header .brand-title").attr("src", "public/assets/images/logo-text.png");
 			
