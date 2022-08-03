@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Guest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class GuestController extends Controller
 {
@@ -35,9 +36,9 @@ class GuestController extends Controller
      * @param  \App\Models\Guest  $guest
      * @return \Illuminate\Http\Response
      */
-    public function show(Guest $guest)
+    public function show(Guest $guests)
     {
-        //
+       //
     }
 
     /**

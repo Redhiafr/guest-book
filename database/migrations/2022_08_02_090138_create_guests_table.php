@@ -18,7 +18,6 @@ class CreateGuestsTable extends Migration
             $table->text('nama');
             $table->text('telp');
             $table->text('instansi');
-            $table->string('alamat');
             $table->text('keterangan');
             $table->timestamps();
         });
