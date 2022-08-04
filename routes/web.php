@@ -3,6 +3,7 @@
 use App\Http\Controllers\GuestController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,3 +19,4 @@ use App\Http\Controllers\HomeController;
 // Route::get('/', function () {
 //     return view('index.index');
 Route::get('/', [GuestController::class, 'index'])->name('admin.index');
+Route::get('/users', [UserController::class, 'index'])->name('user.index');
