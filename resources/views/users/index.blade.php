@@ -1,4 +1,4 @@
-@extends('user.master')
+@extends('users.master')
 @section('content')
     <div class="event-sidebar dz-scroll active" id="eventSidebar">
         <div class="card shadow-none rounded-0 bg-transparent h-auto mb-0">
@@ -175,7 +175,7 @@
 									</span>
 									<div class="media-body ms-1">
 										<p class="mb-2">Guest Hari Ini</p>
-										<h3 class="mb-0 text-black font-w600">109,511</h3>
+										<h3 class="mb-0 text-black font-w600">{{$users->count()}} </h3>
 									</div>
 								</div>
 							</div>
@@ -190,7 +190,7 @@
 									</span>
 									<div class="media-body ms-1">
 										<p class="mb-2">Guest Minggu Ini</p>
-										<h3 class="mb-0 text-black font-w600">109,511</h3>
+										<h3 class="mb-0 text-black font-w600">{{$users->count()}}</h3>
 									</div>
 								</div>
 							</div>
