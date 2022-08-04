@@ -34,7 +34,7 @@
     <link href="{{ asset('assets/vendor/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css') }}"
         rel="stylesheet" type="text/css" />
 
-    <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('assets/css/styleUser.css') }}" rel="stylesheet" type="text/css" />
 
 </head>
 
@@ -56,9 +56,6 @@
         <!--**********************************  Nav header start ***********************************-->
         @include('layout.header')
         <!--**********************************  Header end ti-comment-alt ***********************************-->
-        <!--**********************************  Sidebar start ***********************************-->
-        {{-- @include('layout.sidebar') --}}
-        <!--**********************************  Sidebar end ***********************************-->
         <!--**********************************  EventList ***********************************-->
         @yield('content')
         <!--********************************** Content body end ***********************************-->
