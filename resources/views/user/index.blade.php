@@ -167,141 +167,144 @@
                 <!--Total Visitor-->
                 <div class="row">
                     <div class="col-xl-6 col-sm-6">
-						<div class="widget-stat card">
-							<div class="card-body">
-								<div class="media align-items-center">
-									<span class="me-4">
-										<i class="flaticon-381-user-7"></i>
-									</span>
-									<div class="media-body ms-1">
-										<p class="mb-2">Guest Hari Ini</p>
-										<h3 class="mb-0 text-black font-w600">109,511</h3>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-                    <div class="col-xl-6 col-sm-6">
-						<div class="widget-stat card">
-							<div class="card-body">
-								<div class="media align-items-center">
-									<span class="me-4">
-										<i class="flaticon-381-user-7"></i>
-									</span>
-									<div class="media-body ms-1">
-										<p class="mb-2">Guest Minggu Ini</p>
-										<h3 class="mb-0 text-black font-w600">109,511</h3>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-                <!--Total Visitor-->
-                <div class="col-12">
-                    <div class="card">
-                        <div class="card-header">
-                            <h4 class="card-title">Daftar Tamu</h4>
+                        <div class="widget-stat card">
+                            <div class="card-body">
+                                <div class="media align-items-center">
+                                    <span class="me-4">
+                                        <i class="flaticon-381-user-7"></i>
+                                    </span>
+                                    <div class="media-body ms-1">
+                                        <p class="mb-2">Guest Hari Ini</p>
+                                        <h3 class="mb-0 text-black font-w600">109,511</h3>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="card-body">
-                            <div class="table-responsive">
-                                <table id="example" class="display" style="min-width: 845px">
-                                    <thead>
-                                        <tr>
-                                            <th>No.</th>
-                                            <th>Nama</th>
-                                            <th>No.Telepon</th>
-                                            <th>Asal/Instansi</th>
-                                            <th>Keterangan</th>
-                                            <th>Action</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @foreach ($users as $u)
+                    </div>
+                    <div class="col-xl-6 col-sm-6">
+                        <div class="widget-stat card">
+                            <div class="card-body">
+                                <div class="media align-items-center">
+                                    <span class="me-4">
+                                        <i class="flaticon-381-user-7"></i>
+                                    </span>
+                                    <div class="media-body ms-1">
+                                        <p class="mb-2">Guest Minggu Ini</p>
+                                        <h3 class="mb-0 text-black font-w600">109,511</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Total Visitor-->
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Daftar Tamu</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table id="example" class="display" style="min-width: 845px">
+                                        <thead>
                                             <tr>
-                                                <td>{{ $loop->iteration }}</td>
-                                                <td>{{ $u->nama }}</td>
-                                                <td>{{ $u->telp }}</td>
-                                                <td>{{ $u->instansi }}</td>
-                                                <td>{{ $u->keterangan }}</td>
-                                                <td>
-                                                    {{-- <a href="#"><span class="fas fa-eye me-2"></span>View Details</a>
+                                                <th>No.</th>
+                                                <th>Nama</th>
+                                                <th>No.Telepon</th>
+                                                <th>Asal/Instansi</th>
+                                                <th>Keterangan</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach ($users as $u)
+                                                <tr>
+                                                    <td>{{ $loop->iteration }}</td>
+                                                    <td>{{ $u->nama }}</td>
+                                                    <td>{{ $u->telp }}</td>
+                                                    <td>{{ $u->instansi }}</td>
+                                                    <td>{{ $u->keterangan }}</td>
+                                                    <td>
+                                                        {{-- <a href="#"><span class="fas fa-eye me-2"></span>View Details</a>
                                                             <button class="btn btn-link text-dark dropdown-toggle dropdown-toggle-split m-0 p-0" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                                 <span class="icon icon-sm">
                                                                     <span class="fas fa-ellipsis-h icon-dark"></span>
                                                                 </span>
                                                                 <span class="visually-hidden">Toggle Dropdown</span>
                                                             </button> --}}
-                                                    {{-- <div class="dropdown-menu py-0"> --}}
-                                                    <button type="button" class="btn btn-primary mb-2"
-                                                        data-bs-toggle="modal"
-                                                        data-bs-target=".bd-example-modal-lg">Details</button>
+                                                        {{-- <div class="dropdown-menu py-0"> --}}
+                                                        <button type="button" class="btn btn-primary mb-2"
+                                                            data-bs-toggle="modal"
+                                                            data-bs-target="#bd-example-modal-lg{{ $u->id }}">Details</button>
 
-                                                    {{-- <a class="dropdown-item" href="#"><span class="fas fa-edit me-2"></span>Edit</a>
+                                                        {{-- <a class="dropdown-item" href="#"><span class="fas fa-edit me-2"></span>Edit</a>
                                     
                                                                 <a class="dropdown-item text-danger rounded-bottom" href="#"><span class="fas fa-trash-alt me-2"></span>Remove</a> --}}
-                                                    {{-- </div> --}}
-                                                </td>
-                                            </tr>
-                                        @endforeach
-                                        <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog"
-                                            aria-hidden="true">
-                                            <div class="modal-dialog modal-lg">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h5 class="modal-title">Guest Detail</h5>
-                                                        <button type="button" class="btn-close" data-bs-dismiss="modal">
-                                                        </button>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                        <div class="mb-3">
-                                                            <label for="disabledTextInput">Nama</label>
-                                                            <input type="text" id="disabledTextInput"
-                                                                class="form-control" placeholder="{{ $u->nama }}"
-                                                                disabled>
+                                                        {{-- </div> --}}
+                                                    </td>
+                                                </tr>
+
+                                                <div class="modal fade bd-example-modal-lg"
+                                                    id="bd-example-modal-lg{{ $u->id }}" tabindex="-1"
+                                                    role="dialog" aria-hidden="true">
+                                                    <div class="modal-dialog modal-lg">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title">Guest Detail</h5>
+                                                                <button type="button" class="btn-close"
+                                                                    data-bs-dismiss="modal">
+                                                                </button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <div class="mb-3">
+                                                                    <label for="disabledTextInput">Nama</label>
+                                                                    <input type="text" id="disabledTextInput"
+                                                                        class="form-control"
+                                                                        placeholder="{{ $u->nama }}" disabled>
+                                                                </div>
+                                                                <div class="mb-3">
+                                                                    <label for="disabledTextInput">No Telp.</label>
+                                                                    <input type="text" id="disabledTextInput"
+                                                                        class="form-control"
+                                                                        placeholder="{{ $u->telp }}" disabled>
+                                                                </div>
+                                                                <div class="mb-3">
+                                                                    <label for="disabledTextInput">Asal/Instansi</label>
+                                                                    <input type="text" id="disabledTextInput"
+                                                                        class="form-control"
+                                                                        placeholder="{{ $u->instansi }}" disabled>
+                                                                </div>
+                                                                <div class="mb-3">
+                                                                    <label for="disabledTextInput">Keperluan</label>
+                                                                    <input type="text" id="disabledTextInput"
+                                                                        class="form-control"
+                                                                        placeholder="{{ $u->keterangan }}" disabled>
+                                                                </div>
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-danger light"
+                                                                    data-bs-dismiss="modal">Close</button>
+                                                            </div>
                                                         </div>
-                                                        <div class="mb-3">
-                                                            <label for="disabledTextInput">No Telp.</label>
-                                                            <input type="text" id="disabledTextInput"
-                                                                class="form-control" placeholder="{{ $u->telp }}"
-                                                                disabled>
-                                                        </div>
-                                                        <div class="mb-3">
-                                                            <label for="disabledTextInput">Asal/Instansi</label>
-                                                            <input type="text" id="disabledTextInput"
-                                                                class="form-control" placeholder="{{ $u->instansi }}"
-                                                                disabled>
-                                                        </div>
-                                                        <div class="mb-3">
-                                                            <label for="disabledTextInput">Keperluan</label>
-                                                            <input type="text" id="disabledTextInput"
-                                                                class="form-control" placeholder="{{ $u->keterangan }}"
-                                                                disabled>
-                                                        </div>
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-danger light"
-                                                            data-bs-dismiss="modal">Close</button>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        </div>
-                                </table>
+                                            @endforeach
+                                    </table>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
 
 
-                {{-- <div class="welcome-card rounded ps-5 pt-5 pb-4 mt-3 position-relative mb-5">
+                    {{-- <div class="welcome-card rounded ps-5 pt-5 pb-4 mt-3 position-relative mb-5">
                             <h4 class="text-warning">Welcome to Tixia!</h4>
                             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsumhas been the industry's standard dumm.</p>
                             <a class="btn btn-warning btn-rounded" href="javascript:void(0);">Learn More <i class="las la-long-arrow-alt-right ms-sm-4 ms-2"></i></a>
                             <a class="btn-link text-dark ms-3" href="javascript:void(0);">Remind Me Later</a>
                             <img src="{{ asset('assets/images/svg/welcom-card.svg') }}" alt="" class="position-absolute">
                         </div> --}}
-            </div>
-            {{-- <div class="col-xl-12">
+                </div>
+                {{-- <div class="col-xl-12">
                         <div id="user-activity" class="card">
                             <div class="card-header border-0 pb-0 d-sm-flex d-block">
                                 <div>
@@ -344,7 +347,7 @@
                             </div>
                         </div>
                     </div> --}}
-            {{-- <div class="col-xl-6 col-xxxl-12 col-lg-6">
+                {{-- <div class="col-xl-6 col-xxxl-12 col-lg-6">
                         <div class="card">
                             <div class="card-header border-0 pb-3 d-sm-flex d-block ">
                                 <h4 class="card-title">Latest Sales</h4>
@@ -395,7 +398,7 @@
                             </div>
                         </div>
                     </div> --}}
-            {{-- <div class="col-xl-6 col-xxxl-12 col-lg-6">
+                {{-- <div class="col-xl-6 col-xxxl-12 col-lg-6">
                         <div class="card widget-media">
                             <div class="card-header border-0 pb-0 ">
                                 <h4 class="text-black">Latest Sales</h4>
@@ -466,7 +469,7 @@
                             </div>
                         </div>
                     </div> --}}
+            </div>
         </div>
-    </div>
     </div>
 @endsection
