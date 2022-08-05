@@ -11692,7 +11692,8 @@ html[dir="rtl"] [direction="rtl"][data-sidebar-style="compact"]:not([data-layout
   transition: all .2s ease; }
   @media only screen and (max-width: 1600px) {
     .content-body {
-      margin-left: 17rem; } }
+      /* margin-left: 17rem;  */
+    } }
 
 .bell img {
   -webkit-animation: ring 8s .7s ease-in-out infinite;
