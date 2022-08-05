@@ -20,3 +20,4 @@ use App\Http\Controllers\UserController;
 //     return view('index.index');
 Route::get('/', [GuestController::class, 'index'])->name('admin.index');
 Route::get('/users', [UserController::class, 'index'])->name('users.index');
+Route::get('/users/create', [UserController::class, 'create'])->name('users.create');

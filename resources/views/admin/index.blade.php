@@ -81,7 +81,7 @@
                         </div>                    --}}
                 </div>
 
-                
+
                 {{--  <div class="media mb-5 align-items-center event-list">
                     <div class="p-3 text-center rounded me-3 date-bx bgl-primary">
                         <h2 class="mb-0 text-black">3</h2>
@@ -204,7 +204,9 @@
                                             <th>No.</th>
                                             <th>Nama</th>
                                             <th>No.Telepon</th>
-                                            <th>Asal/Instansi</th>
+                                            <th>Tujuan</th>
+                                            <th>Kategori</th>
+                                            <th>Nama Instansi, Universitas, dsb</th>
                                             <th>Keterangan</th>
                                             <th>Action</th>
                                         </tr>
@@ -215,6 +217,8 @@
                                                 <td>{{ $loop->iteration }}</td>
                                                 <td>{{ $g->nama }}</td>
                                                 <td>{{ $g->telp }}</td>
+                                                <td>{{ $g->tujuan }}</td>
+                                                <td>{{ $g->kategori_id }}</td>
                                                 <td>{{ $g->instansi }}</td>
                                                 <td>{{ $g->keterangan }}</td>
                                                 <td>
@@ -231,7 +235,7 @@
                                                         data-bs-target=".bd-example-modal-lg">Details</button>
 
                                                     {{-- <a class="dropdown-item" href="#"><span class="fas fa-edit me-2"></span>Edit</a>
-                                    
+
                                                                 <a class="dropdown-item text-danger rounded-bottom" href="#"><span class="fas fa-trash-alt me-2"></span>Remove</a> --}}
                                                     {{-- </div> --}}
                                                 </td>
@@ -260,13 +264,25 @@
                                                                 disabled>
                                                         </div>
                                                         <div class="mb-3">
-                                                            <label for="disabledTextInput">Asal/Instansi</label>
+                                                            <label for="disabledTextInput">Tujuan</label>
+                                                            <input type="text" id="disabledTextInput"
+                                                                class="form-control" placeholder="{{ $g->tujuan }}"
+                                                                disabled>
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label for="disabledTextInput">Kategori</label>
+                                                            <input type="text" id="disabledTextInput"
+                                                                class="form-control" placeholder="{{ $g->kategori_id }}"
+                                                                disabled>
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label for="disabledTextInput">Nama Instansi, Universitas, dsb</label>
                                                             <input type="text" id="disabledTextInput"
                                                                 class="form-control" placeholder="{{ $g->instansi }}"
                                                                 disabled>
                                                         </div>
                                                         <div class="mb-3">
-                                                            <label for="disabledTextInput">Keperluan</label>
+                                                            <label for="disabledTextInput">Keterangan</label>
                                                             <input type="text" id="disabledTextInput"
                                                                 class="form-control" placeholder="{{ $g->keterangan }}"
                                                                 disabled>
@@ -284,6 +300,7 @@
                         </div>
                     </div>
                 </div>
+
 
 
 

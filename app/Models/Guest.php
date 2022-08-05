@@ -11,13 +11,18 @@ class Guest extends Model
     protected $fillable = [
         'nama',
         'telp',
+        'tujuan',
+        'kategori_id',
         'instansi',
-        'alamat',
         'keterangan'
     ];
 
     public static function index()
     {
         return Guest::all();
+    }
+
+    public function category() {
+        return $this->belongsTo(Categories::class);
     }
 }

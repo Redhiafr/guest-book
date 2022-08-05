@@ -167,41 +167,40 @@
                 <!--Total Visitor-->
                 <div class="row">
                     <div class="col-xl-6 col-sm-6">
-						<div class="widget-stat card">
-							<div class="card-body">
-								<div class="media align-items-center">
-									<span class="me-4">
-										<i class="flaticon-381-user-7"></i>
-									</span>
-									<div class="media-body ms-1">
-										<p class="mb-2">Guest Hari Ini</p>
-										<h3 class="mb-0 text-black font-w600">{{$users->count()}} </h3>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
+                        <div class="widget-stat card">
+                            <div class="card-body">
+                                <div class="media align-items-center">
+                                    <span class="me-4">
+                                        <i class="flaticon-381-user-7"></i>
+                                    </span>
+                                    <div class="media-body ms-1">
+                                        <p class="mb-2">Guest Hari Ini</p>
+                                        <h3 class="mb-0 text-black font-w600">{{ $guests->count() }} </h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <div class="col-xl-6 col-sm-6">
-						<div class="widget-stat card">
-							<div class="card-body">
-								<div class="media align-items-center">
-									<span class="me-4">
-										<i class="flaticon-381-user-7"></i>
-									</span>
-									<div class="media-body ms-1">
-										<p class="mb-2">Guest Minggu Ini</p>
-										<h3 class="mb-0 text-black font-w600">{{$users->count()}}</h3>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
+                        <div class="widget-stat card">
+                            <div class="card-body">
+                                <div class="media align-items-center">
+                                    <span class="me-4">
+                                        <i class="flaticon-381-user-7"></i>
+                                    </span>
+                                    <div class="media-body ms-1">
+                                        <p class="mb-2">Guest Minggu Ini</p>
+                                        <h3 class="mb-0 text-black font-w600">{{ $guests->count() }}</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <!--Total Visitor-->
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
                                 <h4 class="card-title">Daftar Tamu</h4>
-                                
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
@@ -211,17 +210,21 @@
                                                 <th>No.</th>
                                                 <th>Nama</th>
                                                 <th>No.Telepon</th>
-                                                <th>Asal/Instansi</th>
+                                                <th>Tujuan</th>
+                                                <th>Kategori</th>
+                                                <th>Nama Instansi, Universitas, dsb</th>
                                                 <th>Keterangan</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach ($users as $u)
+                                            @foreach ($guests as $u)
                                                 <tr>
                                                     <td>{{ $loop->iteration }}</td>
                                                     <td>{{ $u->nama }}</td>
                                                     <td>{{ $u->telp }}</td>
+                                                    <td>{{ $u->tujuan }}</td>
+                                                    <td>{{ $u->kategori_id }}</td>
                                                     <td>{{ $u->instansi }}</td>
                                                     <td>{{ $u->keterangan }}</td>
                                                     <td>
@@ -238,7 +241,7 @@
                                                             data-bs-target="#bd-example-modal-lg{{ $u->id }}">Details</button>
 
                                                         {{-- <a class="dropdown-item" href="#"><span class="fas fa-edit me-2"></span>Edit</a>
-                                    
+
                                                                 <a class="dropdown-item text-danger rounded-bottom" href="#"><span class="fas fa-trash-alt me-2"></span>Remove</a> --}}
                                                         {{-- </div> --}}
                                                     </td>
@@ -269,13 +272,26 @@
                                                                         placeholder="{{ $u->telp }}" disabled>
                                                                 </div>
                                                                 <div class="mb-3">
-                                                                    <label for="disabledTextInput">Asal/Instansi</label>
+                                                                    <label for="disabledTextInput">Tujuan</label>
+                                                                    <input type="text" id="disabledTextInput"
+                                                                        class="form-control"
+                                                                        placeholder="{{ $u->tujuan }}" disabled>
+                                                                </div>
+                                                                <div class="mb-3">
+                                                                    <label for="disabledTextInput">Kategori</label>
+                                                                    <input type="text" id="disabledTextInput"
+                                                                        class="form-control"
+                                                                        placeholder="{{ $u->kategori_id }}" disabled>
+                                                                </div>
+                                                                <div class="mb-3">
+                                                                    <label for="disabledTextInput">Nama Instansi,
+                                                                        Universitas, dsb</label>
                                                                     <input type="text" id="disabledTextInput"
                                                                         class="form-control"
                                                                         placeholder="{{ $u->instansi }}" disabled>
                                                                 </div>
                                                                 <div class="mb-3">
-                                                                    <label for="disabledTextInput">Keperluan</label>
+                                                                    <label for="disabledTextInput">Keterangan</label>
                                                                     <input type="text" id="disabledTextInput"
                                                                         class="form-control"
                                                                         placeholder="{{ $u->keterangan }}" disabled>
@@ -294,9 +310,10 @@
                             </div>
                         </div>
                     </div>
-
-
-
+                </div>
+            </div>
+        </div>
+    </div>
                     {{-- <div class="welcome-card rounded ps-5 pt-5 pb-4 mt-3 position-relative mb-5">
                             <h4 class="text-warning">Welcome to Tixia!</h4>
                             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsumhas been the industry's standard dumm.</p>
