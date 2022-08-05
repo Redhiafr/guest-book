@@ -16,7 +16,7 @@
                         </div>
                         <div class="card-body">
                             <div class="col-lg-12 mb-3">
-                                <form method="POST" action="{{ route('users.create') }}" id="myForm"
+                                <form method="POST" action="{{ route('users.create') }}"
                                     enctype="multipart/form-data">
                                     @csrf
                                     <div class="form-group">
@@ -35,8 +35,8 @@
                                         <label class="form-label">Kategori</label>
                                         <select class="default-select  form-control wide" name="kategori_id" id="kategori_id" placeholder="Masukkan Kategori">
                                             <option value="" disabled hidden selected>Masukkan Kategori</option>
-                                            @foreach($guests as $g)
-                                                <option value="{{$g->id}}">{{$g->kategori_id}}</option>
+                                            @foreach($categories as $g)
+                                                <option value="{{$g->id}}">{{$g->nama_kategori}}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -45,8 +45,8 @@
                                         <input type="text" name="place" class="form-control" name="instansi" id="instansi" required>
                                     </div>
                                     <div class="form-group">
-                                        <label class="text-label">Keterangan</label>
-                                        <input type="text" name="place" class="form-control" name="keterangan" id="keterangan" required>
+                                        <label class="text-area">Keterangan</label>
+                                        <input type="text-area" name="place" class="form-control" name="keterangan" id="keterangan" required>
                                     </div>
                                     <div class="form-group" >
                                         <button type="submit" class="btn light btn-primary">Submit</button>

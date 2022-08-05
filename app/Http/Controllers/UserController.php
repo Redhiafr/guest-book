@@ -41,8 +41,6 @@ class UserController extends Controller
             'keterangan' => 'required',
         ]);
 
-        $category = new Category;
-
         $input = $request->all();
         Guest::create($input);
         return redirect()->route('users.index')->with('success', 'Data Berhasil Ditambahkan');
