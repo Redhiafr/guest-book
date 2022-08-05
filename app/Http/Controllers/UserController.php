@@ -10,6 +10,6 @@ class UserController extends Controller
     public function index()
     {
         $users = Guest::all();
-        return view('user.index', compact('users'));
+        return view('users.index', compact('users'));
     }
 }

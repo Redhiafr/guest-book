@@ -19,4 +19,4 @@ use App\Http\Controllers\UserController;
 // Route::get('/', function () {
 //     return view('index.index');
 Route::get('/', [GuestController::class, 'index'])->name('admin.index');
-Route::get('/users', [UserController::class, 'index'])->name('user.index');
+Route::get('/users', [UserController::class, 'index'])->name('users.index');
