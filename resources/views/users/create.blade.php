@@ -16,20 +16,20 @@
                         </div>
                         <div class="card-body">
                             <div class="col-lg-12 mb-3">
-                                <form method="POST" action="{{ route('users.create') }}"
+                                <form method="POST" action="{{ route('users.store') }}"
                                     enctype="multipart/form-data">
                                     @csrf
                                     <div class="form-group">
                                         <label class="text-label">Nama Tamu</label>
-                                        <input type="text" name="place" class="form-control" name="nama" id="nama" required>
+                                        <input type="text" class="form-control" name="nama" id="nama" required>
                                     </div>
                                     <div class="form-group">
                                         <label class="text-label">No. Telpon</label>
-                                        <input type="text" name="place" class="form-control" name="notelp" id="notelp" required>
+                                        <input type="text" class="form-control" name="telp" id="telp" required>
                                     </div>
                                     <div class="form-group">
                                         <label class="text-label">Tujuan</label>
-                                        <input type="text" name="place" class="form-control" name="tujuan" id="tujuan" required>
+                                        <input type="text" class="form-control" name="tujuan" id="tujuan" required>
                                     </div>
                                     <div class="form-group">
                                         <label class="form-label">Kategori</label>
@@ -42,11 +42,11 @@
                                     </div>
                                     <div class="form-group">
                                         <label class="text-label">Nama Instansi, Universitas, dsb</label>
-                                        <input type="text" name="place" class="form-control" name="instansi" id="instansi" required>
+                                        <input type="text" class="form-control" name="instansi" id="instansi" required>
                                     </div>
                                     <div class="form-group">
                                         <label class="text-area">Keterangan</label>
-                                        <input type="text-area" name="place" class="form-control" name="keterangan" id="keterangan" required>
+                                        <input type="text-area" class="form-control" name="keterangan" id="keterangan" required>
                                     </div>
                                     <div class="form-group" >
                                         <button type="submit" class="btn light btn-primary">Submit</button>
