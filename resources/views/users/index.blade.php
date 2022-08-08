@@ -201,13 +201,11 @@
                         <div class="card">
                             <div class="card-header">
                                 <h4 class="card-title">Daftar Tamu</h4>
-                                <a href="{{ route('users.create') }}" 
-                                    class="btn btn-rounded btn-primary"><span
-                                    class="btn-icon-start text-info"><i class="fa fa-plus color-info"></i>
-                                </span>Tambah Tamu</button></a>
                             </div>
                             <div class="card-body">
-                                
+                                <a href="{{ route('users.create') }}"
+                                    class="btn btn-primary"><span><i class="fa fa-plus"></i>
+                                </span> Tambah Tamu</button></a>
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
