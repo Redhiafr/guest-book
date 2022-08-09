@@ -7,155 +7,26 @@
             </div>
         </div>
         <div class="card shadow-none rounded-0 bg-transparent h-auto">
-            {{--  <div class="card-header border-0 pb-0">
+            <div class="card-header border-0 pb-0">
                 <h4 class="text-black">Recent Guest</h4>
-            </div>  --}}
-            <div class="card-body">
-                <div class="col-start-1 col-end-7">
-                        <div class="card-header border-0 ">
-                            <h4 class="text-black">Latest Guests</h4>
-                            {{--  <div class="dropdown ms-auto text-end">  --}}
-                                {{--  <div class="btn-link" data-bs-toggle="dropdown">
-                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-                                        <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                            <rect x="0" y="0" width="24" height="24"></rect>
-                                            <circle fill="#000000" cx="12" cy="5" r="2"></circle>
-                                            <circle fill="#000000" cx="12" cy="12" r="2"></circle>
-                                            <circle fill="#000000" cx="12" cy="19" r="2"></circle>
-                                        </g>
-                                    </svg>
-                                </div>  --}}
-                                {{--  <div class="dropdown-menu dropdown-menu-end">
-                                    <a class="dropdown-item" href="javascript:void(0);">View Detail</a>
-                                    <a class="dropdown-item" href="javascript:void(0);">Edit</a>
-                                    <a class="dropdown-item" href="javascript:void(0);">Delete</a>
-                                </div>  --}}
-                            {{--  </div>  --}}
+            </div>
+            @foreach ($data as $g)
+                <div class="card-body">
+                    <div class="media mb-5 align-items-center event-list">
+                        <div class="p-3 text-center rounded me-3 date-bx bgl-primary">
+                            <h2 class="flaticon-381-user-7"></h2>
                         </div>
-                        <div class="card-body timeline pb-2">
-                            {{--  <div class="timeline-panel align-items-end">  --}}
-                                {{--  <div class="media me-3">
-                                    <img class="rounded-circle" alt="image" width="50" src="{{asset('assets/images/avatar/1.jpg')}}">
-                                </div>  --}}
-                                {{--  <div class="media-body">
-                                    <h5 class="mb-1"><a class="text-black" href="javascript:void(0);">Olivia Johnson</a></h5>  --}}
-                                    {{--  <p class="d-block mb-0 text-primary"><i class="las la-ticket-alt me-2 scale5 ms-1"></i>Height Performance conert 2020</p>  --}}
-                                </div>
-                                {{--  <p class="mb-0 fs-14">2m ago</p>  --}}
-                            </div>
-                            {{--  <div class="timeline-panel align-items-end">
-                                <div class="media me-3">
-                                    <img class="rounded-circle" alt="image" width="50" src="{{asset('assets/images/avatar/2.jpg')}}">
-                                </div>
-                                <div class="media-body">
-                                    <h5 class="mb-1"><a class="text-black" href="javascript:void(0);">Griezerman</a></h5>
-                                    <p class="d-block mb-0 text-primary"><i class="las la-ticket-alt me-2 scale5 ms-1"></i>Fireworks Show New Year 2020</p>
-                                </div>
-                                <p class="mb-0 fs-14">5m ago</p>
-                            </div>  --}}
-                            {{--  <div class="timeline-panel align-items-end">
-                                <div class="media me-3">
-                                    <img class="rounded-circle" alt="image" width="50" src="{{asset('assets/images/avatar/3.jpg')}}">
-                                </div>
-                                <div class="media-body">
-                                    <h5 class="mb-1"><a class="text-black" href="javascript:void(0);">Uli Trumb</a></h5>
-                                    <p class="d-block mb-0 text-primary"><i class="las la-ticket-alt me-2 scale5 ms-1"></i>Height Performance conert 2020</p>
-                                </div>
-                                <p class="mb-0  fs-14">8m ago</p>
-                            </div>  --}}
-                            {{--  <div class="timeline-panel align-items-end">
-                                <div class="media me-3">
-                                    <img class="rounded-circle" alt="image" width="50" src="{{asset('assets/images/avatar/4.jpg')}}">
-                                </div>
-                                <div class="media-body">
-                                    <h5 class="mb-1"><a class="text-black"
-                                            href="javascript:void(0);">Oconner</a></h5>
-                                    <p class="d-block mb-0 text-primary"><i class="las la-ticket-alt me-2 scale5 ms-1"></i>Fireworks Show New Year
-                                        2020</p>
-                                </div>
-                                <p class="mb-0 fs-14">12m ago</p>
-                            </div>  --}}
+                        <div class="media-body px-0">
+                            <h6 class="mt-0 mb-3 fs-14"><a class="text-black">{{ $g->nama }}</a></h6>
+                            <ul class="fs-14 list-inline mb-2 d-flex justify-content-between">
+                                <li>Ticket Sold</li>
+                                <li>561/650</li>
+                            </ul>
                         </div>
-                        {{--  <div class="card-footer border-0 pt-0 text-center">
-                            <a href="javascript:void(0);" class="btn-link">View more <i class="fa fa-angle-down ms-2 scale-2"></i></a>
-                        </div>                    --}}
+                    </div>
                 </div>
-
-
-                {{--  <div class="media mb-5 align-items-center event-list">
-                    <div class="p-3 text-center rounded me-3 date-bx bgl-primary">
-                        <h2 class="mb-0 text-black">3</h2>
-                        <h5 class="mb-1 text-black">Wed</h5>
-                    </div>
-                    <div class="media-body px-0">
-                        <h6 class="mt-0 mb-3 fs-14"><a class="text-black" href="events.html">Live Concert Choir Charity
-                                Event 2020</a></h6>
-                        <ul class="fs-14 list-inline mb-2 d-flex justify-content-between">
-                            <li>Ticket Sold</li>
-                            <li>561/650</li>
-                        </ul>
-                        <div class="progress mb-0" style="height:4px; width:100%;">
-                            <div class="progress-bar bg-warning progress-animated" style="width:85%; height:8px;"
-                                role="progressbar">
-                                <span class="sr-only">60% Complete</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>  --}}
-                {{--  <div class="media mb-5 align-items-center event-list">
-                    <div class="p-3 text-center rounded me-3 date-bx bgl-primary">
-                        <h2 class="mb-0 text-black">16</h2>
-                        <h5 class="mb-1 text-black">Tue</h5>
-                    </div>
-                    <div class="media-body px-0">
-                        <h6 class="mt-0 mb-3 fs-14"><a class="text-black" href="events.html">Beautiful Fireworks Show In The
-                                New Year Night</a></h6>
-                        <ul class="fs-14 list-inline mb-2 d-flex justify-content-between">
-                            <li>Ticket Sold</li>
-                            <li>431/650</li>
-                        </ul>
-                        <div class="progress mb-0" style="height:4px; width:100%;">
-                            <div class="progress-bar bg-warning progress-animated" style="width:50%; height:8px;"
-                                role="progressbar">
-                                <span class="sr-only">60% Complete</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>  --}}
-                {{--  <div class="media mb-0 align-items-center event-list">
-                    <div class="p-3 text-center rounded me-3 date-bx bgl-success">
-                        <h2 class="mb-0 text-black">28</h2>
-                        <h5 class="mb-1 text-black">Fri</h5>
-                    </div>
-                    <div class="media-body px-0">
-                        <h6 class="mt-0 mb-3 fs-14"><a class="text-black" href="events.html">The Story Of Danau
-                                Toba (Musical Drama)</a></h6>
-                        <ul class="fs-14 list-inline mb-2 d-flex justify-content-between">
-                            <li>Ticket Sold</li>
-                            <li>650/650</li>
-                        </ul>
-                        <div class="progress mb-0" style="height:4px; width:100%;">
-                            <div class="progress-bar bg-success progress-animated" style="width:100%; height:8px;"
-                                role="progressbar">
-                                <span class="sr-only">60% Complete</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>  --}}
-            </div>
-            {{--  <div class="card-footer justify-content-between border-0 d-flex fs-14">
-                <span>5 events more</span>
-                <a href="javascript:void(0);" class="text-primary"> View more <i
-                        class="las la-long-arrow-alt-right scale5 ms-2"></i></a>
-            </div>  --}}
+            @endforeach
         </div>
-        {{--  <div class="card shadow-none rounded-0 bg-transparent h-auto mb-0">
-            <div class="card-body text-center event-calender">
-                <a href="javascript:void(0);" class="btn btn-primary btn-rounded btn shadow">
-                    + New Event
-                </a>
-            </div>
-        </div>  --}}
     </div>
 
     <!--**********************************  EventList END ***********************************-->
@@ -170,7 +41,7 @@
                         <div class="card-body">
                             <div class="row mx-0">
                                 <div class="col-sm-12 col-lg-4 px-0">
-                                    <h2 class="fs-40 text-black font-w600">{{$guests->count()}} <small
+                                    <h2 class="fs-40 text-black font-w600">{{ $guests->count() }} <small
                                             class="fs-18 ms-2 font-w600 mb-1">orang</small></h2>
                                     <p class="font-w100 fs-20 text-black">Jumlah Visitor Hari Ini</p>
                                     <div class="justify-content-between border-0 d-flex fs-14 align-items-end">
@@ -276,7 +147,8 @@
                                                                 disabled>
                                                         </div>
                                                         <div class="mb-3">
-                                                            <label for="disabledTextInput">Nama Instansi, Universitas, dsb</label>
+                                                            <label for="disabledTextInput">Nama Instansi, Universitas,
+                                                                dsb</label>
                                                             <input type="text" id="disabledTextInput"
                                                                 class="form-control" placeholder="{{ $g->instansi }}"
                                                                 disabled>
@@ -406,7 +278,7 @@
                             </div>
                         </div>
                     </div> --}}
-            {{--  <div class="col-xl-6 col-xxxl-12 col-lg-6">
+            {{-- <div class="col-xl-6 col-xxxl-12 col-lg-6">
                         <div class="card widget-media">
                             <div class="card-header border-0 pb-0 ">
                                 <h4 class="text-black">Latest Sales</h4>
@@ -476,7 +348,7 @@
                                 <a href="javascript:void(0);" class="btn-link">View more <i class="fa fa-angle-down ms-2 scale-2"></i></a>
                             </div>
                         </div>
-                    </div>  --}}
+                    </div> --}}
         </div>
     </div>
     </div>

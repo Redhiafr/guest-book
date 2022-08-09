@@ -10,8 +10,11 @@ class UserController extends Controller
 {
     public function index()
     {
-        $users = Guest::all();
-        return view('users.index', ['guests' =>Guest::index(), 'categories' =>Category::index()]);
+        $guests = Guest::latest()->paginate(10);
+        $data = Guest::latest()->paginate(1);
+        return view('users.index', compact('guests', 'data'))
+            ->with('i', (request()->input('page', 1) - 1) * 10);
+        // return view('users.index', ['guests' =>Guest::index(), 'categories' =>Category::index()]);
     }
 
     /**
