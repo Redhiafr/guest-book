@@ -16,7 +16,7 @@ class GuestController extends Controller
     public function index()
     {
         $guests = Guest::latest()->paginate(10);
-        $data = Guest::latest()->paginate(1);
+        $data = Guest::latest()->paginate(3);
         return view('admin.index', compact('guests', 'data'))
             ->with('i', (request()->input('page', 1) - 1) * 10);
     }

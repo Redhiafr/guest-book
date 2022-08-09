@@ -19,8 +19,8 @@
                         <div class="media-body px-0">
                             <h6 class="mt-0 mb-3 fs-14"><a class="text-black">{{ $g->nama }}</a></h6>
                             <ul class="fs-14 list-inline mb-2 d-flex justify-content-between">
-                                <li>Ticket Sold</li>
-                                <li>561/650</li>
+                                <li>{{ $g->created_at }}</li>
+                                {{-- <li>561/650</li> --}}
                             </ul>
                         </div>
                     </div>
@@ -89,7 +89,7 @@
                                                 <th>No.Telepon</th>
                                                 <th>Tujuan</th>
                                                 <th>Kategori</th>
-                                                <th>Nama Instansi, Universitas, dsb</th>
+                                                <th>Nama Instansi</th>
                                                 <th>Keterangan</th>
                                                 <th>Action</th>
                                             </tr>
@@ -101,7 +101,11 @@
                                                     <td>{{ $u->nama }}</td>
                                                     <td>{{ $u->telp }}</td>
                                                     <td>{{ $u->tujuan }}</td>
-                                                    <td>{{ $u->kategori_id }}</td>
+                                                    @foreach ($category as $cat)
+                                                        @if ($cat->id == $u->kategori_id)
+                                                            <td>{{ $cat->nama_kategori }}</td>
+                                                        @endif
+                                                    @endforeach
                                                     <td>{{ $u->instansi }}</td>
                                                     <td>{{ $u->keterangan }}</td>
                                                     <td>
@@ -158,7 +162,12 @@
                                                                     <label for="disabledTextInput">Kategori</label>
                                                                     <input type="text" id="disabledTextInput"
                                                                         class="form-control"
-                                                                        placeholder="{{ $u->kategori_id }}" disabled>
+                                                                        @foreach ($category as $cat) 
+                                                                        @if ($cat->id == $u->kategori_id)
+                                                                        placeholder="{{ $cat->nama_kategori }}" disabled> 
+                                                                        @endif
+                                                                        @endforeach
+
                                                                 </div>
                                                                 <div class="mb-3">
                                                                     <label for="disabledTextInput">Nama Instansi,
