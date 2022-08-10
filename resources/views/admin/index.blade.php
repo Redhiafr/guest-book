@@ -8,7 +8,7 @@
         </div>
         <div class="card shadow-none rounded-0 bg-transparent h-auto">
             <div class="card-header border-0 pb-0">
-                <h4 class="text-black">Recent Guest</h4>
+                <h4 class="text-black">Tamu Terkini</h4>
             </div>
             @foreach ($data as $g)
                 <div class="card-body">
@@ -19,8 +19,7 @@
                         <div class="media-body px-0">
                             <h6 class="mt-0 mb-3 fs-14"><a class="text-black">{{ $g->nama }}</a></h6>
                             <ul class="fs-14 list-inline mb-2 d-flex justify-content-between">
-                                <li>Ticket Sold</li>
-                                <li>561/650</li>
+                                <li>{{$g->created_at}}</li>
                             </ul>
                         </div>
                     </div>
@@ -77,7 +76,7 @@
                                             <th>No.Telepon</th>
                                             <th>Tujuan</th>
                                             <th>Kategori</th>
-                                            <th>Nama Instansi, Universitas, dsb</th>
+                                            <th>Nama Instansi</th>
                                             <th>Keterangan</th>
                                             <th>Action</th>
                                         </tr>
@@ -117,7 +116,7 @@
                                             <div class="modal-dialog modal-lg">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
-                                                        <h5 class="modal-title">Guest Detail</h5>
+                                                        <h5 class="modal-title">Detail Tamu</h5>
                                                         <button type="button" class="btn-close" data-bs-dismiss="modal">
                                                         </button>
                                                     </div>
@@ -143,12 +142,14 @@
                                                         <div class="mb-3">
                                                             <label for="disabledTextInput">Kategori</label>
                                                             <input type="text" id="disabledTextInput"
-                                                                class="form-control" placeholder="{{ $g->kategori_id }}"
-                                                                disabled>
+                                                            @foreach ($category as $cat)
+                                                            @if ($cat->id == $u->kategori_id)
+                                                            placeholder="{{ $cat->nama_kategori }}" disabled>
+                                                            @endif
+                                                            @endforeach
                                                         </div>
                                                         <div class="mb-3">
-                                                            <label for="disabledTextInput">Nama Instansi, Universitas,
-                                                                dsb</label>
+                                                            <label for="disabledTextInput">Nama Instansi</label>
                                                             <input type="text" id="disabledTextInput"
                                                                 class="form-control" placeholder="{{ $g->instansi }}"
                                                                 disabled>

@@ -8,7 +8,7 @@
         </div>
         <div class="card shadow-none rounded-0 bg-transparent h-auto">
             <div class="card-header border-0 pb-0">
-                <h4 class="text-black">Latest Guest</h4>
+                <h4 class="text-black">Tamu Terkini</h4>
             </div>
             @foreach ($data as $g)
                 <div class="card-body">
@@ -46,7 +46,7 @@
                                         <i class="flaticon-381-user-7"></i>
                                     </span>
                                     <div class="media-body ms-1">
-                                        <p class="mb-2">Guest Hari Ini</p>
+                                        <p class="mb-2">Tamu Hari Ini</p>
                                         <h3 class="mb-0 text-black font-w600">{{ $guests->count() }} </h3>
                                     </div>
                                 </div>
@@ -61,7 +61,7 @@
                                         <i class="flaticon-381-user-7"></i>
                                     </span>
                                     <div class="media-body ms-1">
-                                        <p class="mb-2">Guest Minggu Ini</p>
+                                        <p class="mb-2">Tamu Minggu Ini</p>
                                         <h3 class="mb-0 text-black font-w600">{{ $guests->count() }}</h3>
                                     </div>
                                 </div>
@@ -134,7 +134,7 @@
                                                     <div class="modal-dialog modal-lg">
                                                         <div class="modal-content">
                                                             <div class="modal-header">
-                                                                <h5 class="modal-title">Guest Detail</h5>
+                                                                <h5 class="modal-title">Detail Tamu</h5>
                                                                 <button type="button" class="btn-close"
                                                                     data-bs-dismiss="modal">
                                                                 </button>
@@ -162,16 +162,15 @@
                                                                     <label for="disabledTextInput">Kategori</label>
                                                                     <input type="text" id="disabledTextInput"
                                                                         class="form-control"
-                                                                        @foreach ($category as $cat) 
+                                                                        @foreach ($category as $cat)
                                                                         @if ($cat->id == $u->kategori_id)
-                                                                        placeholder="{{ $cat->nama_kategori }}" disabled> 
+                                                                        placeholder="{{ $cat->nama_kategori }}" disabled>
                                                                         @endif
                                                                         @endforeach
 
                                                                 </div>
                                                                 <div class="mb-3">
-                                                                    <label for="disabledTextInput">Nama Instansi,
-                                                                        Universitas, dsb</label>
+                                                                    <label for="disabledTextInput">Nama Instansi</label>
                                                                     <input type="text" id="disabledTextInput"
                                                                         class="form-control"
                                                                         placeholder="{{ $u->instansi }}" disabled>

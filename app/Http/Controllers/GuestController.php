@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Guest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -17,7 +18,8 @@ class GuestController extends Controller
     {
         $guests = Guest::latest()->paginate(10);
         $data = Guest::latest()->paginate(3);
-        return view('admin.index', compact('guests', 'data'))
+        $category=Category::all();
+        return view('users.index', compact('guests', 'data','category'))
             ->with('i', (request()->input('page', 1) - 1) * 10);
     }
 
