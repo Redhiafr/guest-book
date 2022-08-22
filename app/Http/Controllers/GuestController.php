@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\Guest;
 use Illuminate\Http\Request;
+use PDF;
 use Illuminate\Support\Facades\DB;
 
 class GuestController extends Controller
@@ -19,7 +20,7 @@ class GuestController extends Controller
         $guests = Guest::latest()->paginate(10);
         $data = Guest::latest()->paginate(3);
         $category=Category::all();
-        return view('users.index', compact('guests', 'data','category'))
+        return view('admin.index', compact('guests', 'data','category'))
             ->with('i', (request()->input('page', 1) - 1) * 10);
     }
 
@@ -66,5 +67,13 @@ class GuestController extends Controller
     public function destroy(Guest $guest)
     {
         //
+    }
+    
+    public function daftar()
+    {
+        $guests = Guest::all();
+        $category=Category::all();
+        $pdf = PDF::loadview('admin.daftar', compact('guests','category'));
+        return $pdf->stream();
     }
 }

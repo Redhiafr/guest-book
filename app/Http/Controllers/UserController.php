@@ -46,19 +46,6 @@ class UserController extends Controller
             'keterangan' => 'required',
         ]);
 
-        // $users = new Guest;
-        // $users->nama = $request->get('nama');
-        // $users->telp = $request->get('telp');
-        // $users->tujuan = $request->get('tujuan');
-        // $users->instansi = $request->get('instansi');
-        // $users->keterangan = $request->get('kterangan');
-
-        // $kategori = new Category;
-        // $kategori->id = $request->get('kategori_id');
-
-        // $users->category()->associate($kategori);
-        // $users->save();
-
         $input = $request->all();
         Guest::create($input);       
         return redirect()->route('users.index')

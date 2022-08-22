@@ -16,9 +16,9 @@ use App\Http\Controllers\UserController;
 |
 */
 
-// Route::get('/', function () {
-//     return view('index.index');
-Route::get('/', [GuestController::class, 'index'])->name('admin.index');
-// Route::get('/users', [UserController::class, 'index'])->name('users.index');
-// Route::get('/users/form', [UserController::class, 'store'])->name('users.store');
+
+Route::get('/', [UserController::class, 'index'])->name('users.index');
 Route::resource('/users', UserController::class);
+Route::get('/dashboard', [GuestController::class, 'index'])->name('admin.index');
+Route::get('/daftar-tamu', [GuestController::class, 'daftar'])->name('admin.daftar');
+

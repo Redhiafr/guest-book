@@ -1,4 +1,4 @@
-@extends('layout.master')
+@extends('users.master')
 @section('content')
     <div class="event-sidebar dz-scroll active" id="eventSidebar">
         <div class="card shadow-none rounded-0 bg-transparent h-auto mb-0">
@@ -19,13 +19,15 @@
                         <div class="media-body px-0">
                             <h6 class="mt-0 mb-3 fs-14"><a class="text-black">{{ $g->nama }}</a></h6>
                             <ul class="fs-14 list-inline mb-2 d-flex justify-content-between">
-                                <li>{{$g->created_at}}</li>
+                                <li>{{ $g->created_at }}</li>
+                                {{-- <li>561/650</li> --}}
                             </ul>
                         </div>
                     </div>
                 </div>
             @endforeach
         </div>
+
     </div>
 
     <!--**********************************  EventList END ***********************************-->
@@ -35,157 +37,177 @@
         <div class="container-fluid">
             <div class="row">
                 <!--Total Visitor-->
-                <div class="col-xl-12">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="row mx-0">
-                                <div class="col-sm-12 col-lg-4 px-0">
-                                    <h2 class="fs-40 text-black font-w600">{{ $guests->count() }} <small
-                                            class="fs-18 ms-2 font-w600 mb-1">orang</small></h2>
-                                    <p class="font-w100 fs-20 text-black">Jumlah Visitor Hari Ini</p>
-                                    <div class="justify-content-between border-0 d-flex fs-14 align-items-end">
-                                        <a href="javascript:void(0);" class="text-primary">View more <i
-                                                class="las la-long-arrow-alt-right scale5 ms-2"></i></a>
-                                        <div class="text-end">
-                                            <span class="peity-primary" data-style="width:100%;">0,2,1,4</span>
-                                            <h3 class="mt-2 mb-1">+4%</h3>
-                                            <span>than last day</span>
-                                        </div>
+                <div class="row">
+                    <div class="col-xl-6 col-sm-6">
+                        <div class="widget-stat card">
+                            <div class="card-body">
+                                <div class="media align-items-center">
+                                    <span class="me-4">
+                                        <i class="flaticon-381-user-7"></i>
+                                    </span>
+                                    <div class="media-body ms-1">
+                                        <p class="mb-2">Tamu Hari Ini</p>
+                                        <h3 class="mb-0 text-black font-w600">{{ $guests->count() }} </h3>
                                     </div>
-                                </div>
-                                <div class="col-sm-12 col-lg-8 px-0">
-                                    <canvas id="ticketSold" height="200"></canvas>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <!--Total Visitor-->
-                <div class="col-12">
-                    <div class="card">
-                        <div class="card-header">
-                            <h4 class="card-title">Daftar Tamu</h4>
+                    <div class="col-xl-6 col-sm-6">
+                        <div class="widget-stat card">
+                            <div class="card-body">
+                                <div class="media align-items-center">
+                                    <span class="me-4">
+                                        <i class="flaticon-381-user-7"></i>
+                                    </span>
+                                    <div class="media-body ms-1">
+                                        <p class="mb-2">Tamu Minggu Ini</p>
+                                        <h3 class="mb-0 text-black font-w600">{{ $guests->count() }}</h3>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="card-body">
-                            <div class="table-responsive">
-                                <table id="example" class="display" style="min-width: 845px">
-                                    <thead>
-                                        <tr>
-                                            <th>No.</th>
-                                            <th>Nama</th>
-                                            <th>No.Telepon</th>
-                                            <th>Tujuan</th>
-                                            <th>Kategori</th>
-                                            <th>Nama Instansi</th>
-                                            <th>Keterangan</th>
-                                            <th>Action</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @foreach ($guests as $g)
+                    </div>
+                    <!--Total Visitor-->
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Daftar Tamu</h4>
+                            </div>
+                            <div class="card-body">
+                                <a href="{{ route('admin.daftar') }}" class="btn btn-primary"><span><i
+                                            class="fa fa-print"></i>
+                                    </span> Cetak </button></a>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table id="example" class="display" style="min-width: 845px">
+                                        <thead>
                                             <tr>
-                                                <td>{{ $loop->iteration }}</td>
-                                                <td>{{ $g->nama }}</td>
-                                                <td>{{ $g->telp }}</td>
-                                                <td>{{ $g->tujuan }}</td>
-                                                <td>{{ $g->kategori_id }}</td>
-                                                <td>{{ $g->instansi }}</td>
-                                                <td>{{ $g->keterangan }}</td>
-                                                <td>
-                                                    {{-- <a href="#"><span class="fas fa-eye me-2"></span>View Details</a>
+                                                <th>No.</th>
+                                                <th>Nama</th>
+                                                <th>No.Telepon</th>
+                                                <th>Tujuan</th>
+                                                <th>Kategori</th>
+                                                <th>Nama Instansi</th>
+                                                <th>Keterangan</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach ($guests as $u)
+                                                <tr>
+                                                    <td>{{ $loop->iteration }}</td>
+                                                    <td>{{ $u->nama }}</td>
+                                                    <td>{{ $u->telp }}</td>
+                                                    <td>{{ $u->tujuan }}</td>
+                                                    @foreach ($category as $cat)
+                                                        @if ($cat->id == $u->kategori_id)
+                                                            <td>{{ $cat->nama_kategori }}</td>
+                                                        @endif
+                                                    @endforeach
+                                                    <td>{{ $u->instansi }}</td>
+                                                    <td>{{ $u->keterangan }}</td>
+                                                    <td>
+                                                        {{-- <a href="#"><span class="fas fa-eye me-2"></span>View Details</a>
                                                             <button class="btn btn-link text-dark dropdown-toggle dropdown-toggle-split m-0 p-0" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                                 <span class="icon icon-sm">
                                                                     <span class="fas fa-ellipsis-h icon-dark"></span>
                                                                 </span>
                                                                 <span class="visually-hidden">Toggle Dropdown</span>
                                                             </button> --}}
-                                                    {{-- <div class="dropdown-menu py-0"> --}}
-                                                    <button type="button" class="btn btn-primary mb-2"
-                                                        data-bs-toggle="modal"
-                                                        data-bs-target=".bd-example-modal-lg">Details</button>
+                                                        {{-- <div class="dropdown-menu py-0"> --}}
+                                                        <button type="button" class="btn btn-primary mb-2"
+                                                            data-bs-toggle="modal"
+                                                            data-bs-target="#bd-example-modal-lg{{ $u->id }}">Details</button>
 
-                                                    {{-- <a class="dropdown-item" href="#"><span class="fas fa-edit me-2"></span>Edit</a>
+                                                        {{-- <a class="dropdown-item" href="#"><span class="fas fa-edit me-2"></span>Edit</a>
 
                                                                 <a class="dropdown-item text-danger rounded-bottom" href="#"><span class="fas fa-trash-alt me-2"></span>Remove</a> --}}
-                                                    {{-- </div> --}}
-                                                </td>
-                                            </tr>
-                                        @endforeach
-                                        <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog"
-                                            aria-hidden="true">
-                                            <div class="modal-dialog modal-lg">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h5 class="modal-title">Detail Tamu</h5>
-                                                        <button type="button" class="btn-close" data-bs-dismiss="modal">
-                                                        </button>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                        <div class="mb-3">
-                                                            <label for="disabledTextInput">Nama</label>
-                                                            <input type="text" id="disabledTextInput"
-                                                                class="form-control" placeholder="{{ $g->nama }}"
-                                                                disabled>
+                                                        {{-- </div> --}}
+                                                    </td>
+                                                </tr>
+
+                                                <div class="modal fade bd-example-modal-lg"
+                                                    id="bd-example-modal-lg{{ $u->id }}" tabindex="-1"
+                                                    role="dialog" aria-hidden="true">
+                                                    <div class="modal-dialog modal-lg">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title">Detail Tamu</h5>
+                                                                <button type="button" class="btn-close"
+                                                                    data-bs-dismiss="modal">
+                                                                </button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <div class="mb-3">
+                                                                    <label for="disabledTextInput">Nama</label>
+                                                                    <input type="text" id="disabledTextInput"
+                                                                        class="form-control"
+                                                                        placeholder="{{ $u->nama }}" disabled>
+                                                                </div>
+                                                                <div class="mb-3">
+                                                                    <label for="disabledTextInput">No Telp.</label>
+                                                                    <input type="text" id="disabledTextInput"
+                                                                        class="form-control"
+                                                                        placeholder="{{ $u->telp }}" disabled>
+                                                                </div>
+                                                                <div class="mb-3">
+                                                                    <label for="disabledTextInput">Tujuan</label>
+                                                                    <input type="text" id="disabledTextInput"
+                                                                        class="form-control"
+                                                                        placeholder="{{ $u->tujuan }}" disabled>
+                                                                </div>
+                                                                <div class="mb-3">
+                                                                    <label for="disabledTextInput">Kategori</label>
+                                                                    <input type="text" id="disabledTextInput"
+                                                                        class="form-control"
+                                                                        @foreach ($category as $cat)
+                                                                        @if ($cat->id == $u->kategori_id)
+                                                                        placeholder="{{ $cat->nama_kategori }}" disabled>
+                                                                        @endif
+                                                                        @endforeach
+
+                                                                </div>
+                                                                <div class="mb-3">
+                                                                    <label for="disabledTextInput">Nama Instansi</label>
+                                                                    <input type="text" id="disabledTextInput"
+                                                                        class="form-control"
+                                                                        placeholder="{{ $u->instansi }}" disabled>
+                                                                </div>
+                                                                <div class="mb-3">
+                                                                    <label for="disabledTextInput">Keterangan</label>
+                                                                    <input type="text" id="disabledTextInput"
+                                                                        class="form-control"
+                                                                        placeholder="{{ $u->keterangan }}" disabled>
+                                                                </div>
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-danger light"
+                                                                    data-bs-dismiss="modal">Close</button>
+                                                            </div>
                                                         </div>
-                                                        <div class="mb-3">
-                                                            <label for="disabledTextInput">No Telp.</label>
-                                                            <input type="text" id="disabledTextInput"
-                                                                class="form-control" placeholder="{{ $g->telp }}"
-                                                                disabled>
-                                                        </div>
-                                                        <div class="mb-3">
-                                                            <label for="disabledTextInput">Tujuan</label>
-                                                            <input type="text" id="disabledTextInput"
-                                                                class="form-control" placeholder="{{ $g->tujuan }}"
-                                                                disabled>
-                                                        </div>
-                                                        <div class="mb-3">
-                                                            <label for="disabledTextInput">Kategori</label>
-                                                            <input type="text" id="disabledTextInput"
-                                                            @foreach ($category as $cat)
-                                                            @if ($cat->id == $u->kategori_id)
-                                                            placeholder="{{ $cat->nama_kategori }}" disabled>
-                                                            @endif
-                                                            @endforeach
-                                                        </div>
-                                                        <div class="mb-3">
-                                                            <label for="disabledTextInput">Nama Instansi</label>
-                                                            <input type="text" id="disabledTextInput"
-                                                                class="form-control" placeholder="{{ $g->instansi }}"
-                                                                disabled>
-                                                        </div>
-                                                        <div class="mb-3">
-                                                            <label for="disabledTextInput">Keterangan</label>
-                                                            <input type="text" id="disabledTextInput"
-                                                                class="form-control" placeholder="{{ $g->keterangan }}"
-                                                                disabled>
-                                                        </div>
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-danger light"
-                                                            data-bs-dismiss="modal">Close</button>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        </div>
-                                </table>
+                                            @endforeach
+                                    </table>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
-
-
-
-                {{-- <div class="welcome-card rounded ps-5 pt-5 pb-4 mt-3 position-relative mb-5">
+            </div>
+        </div>
+    </div>
+    {{-- <div class="welcome-card rounded ps-5 pt-5 pb-4 mt-3 position-relative mb-5">
                             <h4 class="text-warning">Welcome to Tixia!</h4>
                             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsumhas been the industry's standard dumm.</p>
                             <a class="btn btn-warning btn-rounded" href="javascript:void(0);">Learn More <i class="las la-long-arrow-alt-right ms-sm-4 ms-2"></i></a>
                             <a class="btn-link text-dark ms-3" href="javascript:void(0);">Remind Me Later</a>
                             <img src="{{ asset('assets/images/svg/welcom-card.svg') }}" alt="" class="position-absolute">
                         </div> --}}
-            </div>
-            {{-- <div class="col-xl-12">
+    </div>
+    {{-- <div class="col-xl-12">
                         <div id="user-activity" class="card">
                             <div class="card-header border-0 pb-0 d-sm-flex d-block">
                                 <div>
@@ -228,7 +250,7 @@
                             </div>
                         </div>
                     </div> --}}
-            {{-- <div class="col-xl-6 col-xxxl-12 col-lg-6">
+    {{-- <div class="col-xl-6 col-xxxl-12 col-lg-6">
                         <div class="card">
                             <div class="card-header border-0 pb-3 d-sm-flex d-block ">
                                 <h4 class="card-title">Latest Sales</h4>
@@ -279,7 +301,7 @@
                             </div>
                         </div>
                     </div> --}}
-            {{-- <div class="col-xl-6 col-xxxl-12 col-lg-6">
+    {{-- <div class="col-xl-6 col-xxxl-12 col-lg-6">
                         <div class="card widget-media">
                             <div class="card-header border-0 pb-0 ">
                                 <h4 class="text-black">Latest Sales</h4>
@@ -350,7 +372,7 @@
                             </div>
                         </div>
                     </div> --}}
-        </div>
+    </div>
     </div>
     </div>
 @endsection
