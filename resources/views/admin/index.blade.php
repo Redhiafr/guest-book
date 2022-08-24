@@ -2,10 +2,16 @@
 @section('content')
     <div class="event-sidebar dz-scroll active" id="eventSidebar">
         <div class="card shadow-none rounded-0 bg-transparent h-auto mb-0">
-            <div class="card-body text-center event-calender pb-2">
+            {{-- <div class="card-body text-center event-calender pb-2">
                 <input type='text' class="form-control d-none" id='datetimepicker1' />
-            </div>
-        </div>
+            </div> --}}
+
+                <div class="card-body text-center event-calender pb-2">
+                    <p class="mb-1">Date Range Pick</p>
+                    <input class="form-control input-daterange-datepicker" type="text" name="daterange" value="01/01/2015 - 01/31/2015">
+                </div>
+
+
         <div class="card shadow-none rounded-0 bg-transparent h-auto">
             <div class="card-header border-0 pb-0">
                 <h4 class="text-black">Tamu Terkini</h4>
