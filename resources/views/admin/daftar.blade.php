@@ -31,19 +31,37 @@
         }
 
         header {
-            width: 100%;
+            /* width: 100%;
             padding: 10px 0;
-            margin-bottom: 30px;
+            margin-bottom: 30px; */
+            border-color: #f3f3f3;
+            position: relative;
+            background: transparent;
+            padding: 1.5rem 1.875rem 1.25rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
-        h1 {
+        h2 {
             border-bottom: 1px solid #5D6975;
-            color: #5D6975;
-            font-size: 2.4em;
+            color: #001028;
+            /* font-size: 2.4em; */
             line-height: 1.4em;
             font-weight: normal;
-            text-align: left;
-            margin: 0 0 20px 0;
+            text-align: center;
+            /* margin: 0 0 20px 0; */
+            background: url(dimension.png);
+        }
+
+        h3 {
+            /* border-bottom: 1px solid #5D6975; */
+            color: #001028;
+            /* font-size: 2.4em; */
+            /* line-height: 1.4em; */
+            font-weight: normal;
+            text-align: center;
+            /* margin: 0 0 20px 0; */
             background: url(dimension.png);
         }
 
@@ -138,35 +156,34 @@
             padding: 8px 0;
             text-align: center;
         }
+
+        .topright {
+            position: absolute;
+            top: 8px;
+            right: 16px;
+            font-size: 18px;
+            width: 15%;
+        }
+
+        .topleft {
+            position: absolute;
+            top: 8px;
+            left: 16px;
+            font-size: 18px;
+            width: 15%;
+        }
     </style>
 </head>
 
 <body>
-    <header class="clearfix">
-        <h1>Daftar Tamu</h1>
-        {{--  <div class="d-flex justify-content-between pl-4 pr-4 pt-3 pb-4 mt-3" style="margin-bottom:50px ">
-            <img src="{{ asset('assets/images/logo/logo-bumn.png') }}" alt="image" style="width: 15%;">
-            <img src="{{ asset('assets/images/logo-pal.png') }}" alt="Card image cap" style="width: 15%;">
-        </div>  --}}
-        {{-- <div id="identity">
-            <div id="project" >
-                <div><strong>Pembeli:</strong></div>
-                <div>{{ $order->name }}</div>
-                <div>{{ $order->address }}</div>
-                <div>{{ $order->district . ', ' . $order->postal_code }}</div>
-                <div>{{ $order->city . ', ' . $order->province }}</div>
-                <div>{{ $order->phone_number }}</div>
-            </div>
-            <div id="company" class="clearfix">
-                <div><strong>Metode Pembayaran:</strong></div>
-                <div>{{ $order->payment->name }}</div>
-                <div style="margin-top: 25px"><strong>Tanggal Pemesanan:</strong></div>
-                <div>{{ date('d F Y H:i:s', strtotime($order->created_at)) }}</div>
-            </div>
-        </div> --}}
+    <header>
+        <img src="assets/images/logo-bumn1.png" class="topleft">
+        <img src="assets/images/logo-4.png" class="topright">
     </header>
+    <h2>List Daftar Tamu</h2>
+    <h3>Pada Tanggal dd/mm/yyyy</h3>
     <main>
-        <table>
+        <table class="table table-striped">
             <thead>
                 <tr>
                     <th>No</th>
