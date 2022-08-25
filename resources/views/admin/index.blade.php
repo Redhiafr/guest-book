@@ -94,18 +94,27 @@
                                 <h4 class="card-title">Daftar Tamu</h4>
                             </div>
                             <div class="card-body">
-                                <div class="col-xl-4 mb-3">
-                                <a href="{{ route('admin.daftar') }}" class="btn btn-primary"><span><i
-                                            class="fa fa-print"></i>
-                                    </span> Cetak </button></a>
                                 <div class="row">
-                                    
+                                    <div class="col-8">
+
+                                    </div>
+                                    <div class="col-4">
+                                        <p class="mb-1">Pilih Tanggal</p>
+
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-8">
+                                        <a href="{{ route('admin.daftar') }}" class="btn btn-primary"><span><i
+                                                    class="fa fa-print"></i>
+                                            </span> Cetak </button></a>
+                                    </div>
+                                    <div class="col-4" style="text-align: right">
                                         <div class="example">
-                                            <p class="mb-1">Pilih Tanggal</p>
                                             <input class="form-control input-daterange-datepicker" type="text"
                                                 name="daterange" value="01/01/2015 - 01/31/2015">
                                         </div>
-                                   
+                                    </div>
                                 </div>
                             </div>
 
