@@ -9,6 +9,7 @@
 
 <link href="{{ asset('/assets/vendor/bootstrap-select/dist/css/bootstrap-select.min.css') }}" rel="stylesheet"
     type="text/css" />
+<link href="{{asset('/assets/vendor/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css')}}" rel="stylesheet" type="text/css"/>	
 
 @extends('users.master')
 @section('content')
@@ -98,22 +99,47 @@
                                     <div class="col-8">
 
                                     </div>
-                                    <div class="col-4">
+                                    {{--  <div class="col-4">
                                         <p class="mb-1">Pilih Tanggal</p>
 
-                                    </div>
+                                    </div>  --}}
                                 </div>
                                 <div class="row">
-                                    <div class="col-8">
+                                    {{--  <div class="col-6">
                                         <a href="{{ route('admin.daftar') }}" class="btn btn-primary"><span><i
                                                     class="fa fa-print"></i>
                                             </span> Cetak </button></a>
+                                    </div>  --}}
+                                    <div class="col-span-2 flex-justify-end" style="text-align: right">
+
+                                        {{--  <div class="example">                                           
+                                            <input class="form-control input-daterange-datepicker" type="date"
+                                                name="start_date" value="01/01/2022 - 01/31/2022">    
+                                            <input class="form-control input-daterange-datepicker" type="date"
+                                                name="end_date">
+
+                                        </div>  --}}
                                     </div>
-                                    <div class="col-4" style="text-align: right">
-                                        <div class="example">
-                                            <input class="form-control input-daterange-datepicker" type="text"
-                                                name="daterange" value="01/01/2015 - 01/31/2015">
-                                        </div>
+                                    <form method="POST" action="/cetak"
+                                    enctype="multipart/form-data">
+                                    @csrf
+                                    <div class="col-xl-2 col-xxl-6 col-md-6 mb-3">
+                                            <label class="form-label">Start Date</label>
+                                            <input type="date" class="form-control"  name="start_date" id="start_date">
+                                    </div>
+                                    <div class="col-xl-2 col-xxl-6 col-md-6 mb-3">
+                                        <label class="form-label">End Date</label>
+                                        <input type="date" class="form-control"  name="end_date" id="end_date">
+                                    </div>
+                                    <div class="col-10">
+                                        <input type="submit" value="print" class="btn btn-primary" >
+                                        <span><i
+                                            class="fa fa-print"></i>
+                                    </span> 
+                                        {{--  <a href="{{ route('admin.') }}" class="btn btn-primary"><span><i
+                                                    class="fa fa-print"></i>
+                                            </span> Cetak </button></a>  --}}
+                                        </form>
                                     </div>
                                 </div>
                             </div>

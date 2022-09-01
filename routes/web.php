@@ -20,5 +20,6 @@ use App\Http\Controllers\UserController;
 Route::get('/', [UserController::class, 'index'])->name('users.index');
 Route::resource('/users', UserController::class);
 Route::get('/dashboard', [GuestController::class, 'index'])->name('admin.index');
-Route::get('/daftar-tamu', [GuestController::class, 'daftar'])->name('admin.daftar');
+Route::post('/daftar-tamu', [GuestController::class, 'daftar'])->name('admin.daftar');
+route::post('/cetak', [GuestController::class,'cetak']);
 

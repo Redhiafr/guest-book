@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Guest;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use PDF;
-use Illuminate\Support\Facades\DB;
 
 class GuestController extends Controller
 {
@@ -17,10 +17,11 @@ class GuestController extends Controller
      */
     public function index()
     {
+
         $guests = Guest::latest()->paginate(10);
         $data = Guest::latest()->paginate(3);
-        $category=Category::all();
-        return view('admin.index', compact('guests', 'data','category'))
+        $category = Category::all();
+        return view('admin.index', compact('guests', 'data', 'category'))
             ->with('i', (request()->input('page', 1) - 1) * 10);
     }
 
@@ -43,7 +44,7 @@ class GuestController extends Controller
      */
     public function show(Guest $guests)
     {
-       //
+        //
     }
 
     /**
@@ -66,14 +67,22 @@ class GuestController extends Controller
      */
     public function destroy(Guest $guest)
     {
-        //
-    }
     
-    public function daftar()
+    }
+
+    
+
+    public function cetak(Request $request)
     {
-        $guests = Guest::all();
-        $category=Category::all();
-        $pdf = PDF::loadview('admin.daftar', compact('guests','category'));
+        $start_date = Carbon::createFromFormat('Y-m-d', $request->start_date)->toDateString();
+        $end_date = Carbon::createFromFormat('Y-m-d', $request->end_date)->toDateString();
+
+        $guests = Guest::select('*')
+            ->whereRaw('DATE_FORMAT(created_at, "%Y-%m-%d") between "' . $request->start_date . '" and "' . $end_date . '"')
+            ->get();
+
+        $category = Category::all();
+        $pdf = PDF::loadview('admin.daftar', compact('guests', 'category'));
         return $pdf->stream();
     }
 }
