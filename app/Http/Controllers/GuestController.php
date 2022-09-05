@@ -73,8 +73,9 @@ class GuestController extends Controller
     {
 
         $start_date = Carbon::createFromFormat('Y-m-d', $request->start_date)->toDateString();
+        $tanggal1 = Carbon::parse($start_date)->format('d F Y');
         $end_date = Carbon::createFromFormat('Y-m-d', $request->end_date)->toDateString();
-
+        $tanggal2 = Carbon::parse($end_date)->format('d F Y');
         $guests = Guest::select('*')
             ->whereRaw('DATE_FORMAT(created_at, "%Y-%m-%d") between "' . $request->start_date . '" and "' . $end_date . '"')
             ->get();
@@ -87,7 +88,7 @@ class GuestController extends Controller
 
         // var_dump($monthName);
         $category = Category::all();
-        $pdf = PDF::loadview('admin.daftar', compact('guests', 'category', 'start_date', 'end_date'));
+        $pdf = PDF::loadview('admin.daftar', compact('guests', 'category', 'start_date', 'end_date', 'tanggal1', 'tanggal2'));
         return $pdf->stream();
     }
 }

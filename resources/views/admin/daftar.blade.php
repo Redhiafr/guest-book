@@ -122,7 +122,7 @@
         <img src="assets/images/logo-4.png" class="topright">
     </header>
     <h2 style="text-decoration: underline;">DAFTAR TAMU</h2>
-    <h3>{{$start_date}} sampai {{$end_date}}</h3>
+    <h3>{{$tanggal1}} s/d {{$tanggal2}}</h3>
     <main>
         <div class="table-responsive" style="overflow-x:auto">
             <table class="table">
