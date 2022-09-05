@@ -15,7 +15,7 @@
 
         a {
             color: #5D6975;
-            text-decoration: underline;            
+            text-decoration: underline;
         }
 
         body {
@@ -44,14 +44,14 @@
         }
 
         h2 {
-                                   
+
             font-weight: 400;
             line-height: 1.5;
             color: #858796;
-            font-family: Verdana, Geneva, Tahoma, sans-serif;            
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
             margin-top: 10%;
             /* font-size: 2.4em; */
-            line-height: 1.4em;            
+            line-height: 1.4em;
             font-weight: bold;
             text-align: center;
 
@@ -79,13 +79,13 @@
         }
 
         table th,
-        table td {                        
+        table td {
             text-align: center;
-            font-family: Verdana, Geneva, Tahoma, sans-serif            
+            font-family: Verdana, Geneva, Tahoma, sans-serif
         }
 
         table th {
-            padding: 10px 20px;            
+            padding: 10px 20px;
             color: #5D6975;
             border-bottom: 1px solid #858796;
             white-space: nowrap;
@@ -122,7 +122,7 @@
         <img src="assets/images/logo-4.png" class="topright">
     </header>
     <h2 style="text-decoration: underline;">DAFTAR TAMU</h2>
-    <h3>dd/mm/yyyy - dd/mm/yyyy</h3>
+    <h3>{{$start_date}} sampai {{$end_date}}</h3>
     <main>
         <div class="table-responsive" style="overflow-x:auto">
             <table class="table">
@@ -150,7 +150,7 @@
                                 @endif
                             @endforeach
                             <td>{{ $u->instansi }}</td>
-                            <td>{{ $u->keterangan }}</td>                           
+                            <td>{{ $u->keterangan }}</td>
                         <tr>
                     @endforeach
                 </tbody>

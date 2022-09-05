@@ -67,22 +67,27 @@ class GuestController extends Controller
      */
     public function destroy(Guest $guest)
     {
-    
     }
-
-    
 
     public function cetak(Request $request)
     {
-        $start_date = Carbon::createFromFormat('Y-m-d', $request->start_date)->toDateString();
-        $end_date = Carbon::createFromFormat('Y-m-d', $request->end_date)->toDateString();
+        $monthNum = 3;
+        $start_date = Carbon::createFromFormat('Y-m-d', $monthNum, $request->start_date)->toDateString();
+        $end_date = Carbon::createFromFormat('Y-m-d', $monthNum, $request->end_date)->toDateString();
 
         $guests = Guest::select('*')
             ->whereRaw('DATE_FORMAT(created_at, "%Y-%m-%d") between "' . $request->start_date . '" and "' . $end_date . '"')
             ->get();
 
+        $monthName = $start_date->format('F');
+        // $abc=date('d-m-Y', strtotime($start_date));
+        // dd($abc);
+        // $date = Carbon::now();
+        // $monthName = $date->format('F');
+
+        // var_dump($monthName);
         $category = Category::all();
-        $pdf = PDF::loadview('admin.daftar', compact('guests', 'category'));
+        $pdf = PDF::loadview('admin.daftar', compact('guests', 'category', 'monthName', 'start_date', 'end_date'));
         return $pdf->stream();
     }
 }

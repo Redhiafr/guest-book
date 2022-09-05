@@ -9,7 +9,8 @@
 
 <link href="{{ asset('/assets/vendor/bootstrap-select/dist/css/bootstrap-select.min.css') }}" rel="stylesheet"
     type="text/css" />
-<link href="{{asset('/assets/vendor/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css')}}" rel="stylesheet" type="text/css"/>	
+<link href="{{ asset('/assets/vendor/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css') }}"
+    rel="stylesheet" type="text/css" />
 
 @extends('users.master')
 @section('content')
@@ -94,52 +95,30 @@
                             <div class="card-header">
                                 <h4 class="card-title">Daftar Tamu</h4>
                             </div>
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-8">
+                            <div class="col-xl-6 col-lg-12">
+                                <div class="card-body">
+                                    <div class="basic-form">
+                                        <div class="row">
+                                            {{-- <div class="col-span-2 flex-justify-end" style="text-align: right">
+                                    </div> --}}
+                                            <form method="POST" action="/cetak" enctype="multipart/form-data">
+                                                @csrf
+                                                <div class="mb-3 col-md-6">
+                                                    <label class="form-label">Start Date</label>
+                                                    <input type="date" class="form-control" name="start_date"
+                                                        id="start_date">
 
-                                    </div>
-                                    {{--  <div class="col-4">
-                                        <p class="mb-1">Pilih Tanggal</p>
-
-                                    </div>  --}}
-                                </div>
-                                <div class="row">
-                                    {{--  <div class="col-6">
-                                        <a href="{{ route('admin.daftar') }}" class="btn btn-primary"><span><i
-                                                    class="fa fa-print"></i>
-                                            </span> Cetak </button></a>
-                                    </div>  --}}
-                                    <div class="col-span-2 flex-justify-end" style="text-align: right">
-
-                                        {{--  <div class="example">                                           
-                                            <input class="form-control input-daterange-datepicker" type="date"
-                                                name="start_date" value="01/01/2022 - 01/31/2022">    
-                                            <input class="form-control input-daterange-datepicker" type="date"
-                                                name="end_date">
-
-                                        </div>  --}}
-                                    </div>
-                                    <form method="POST" action="/cetak"
-                                    enctype="multipart/form-data">
-                                    @csrf
-                                    <div class="col-xl-2 col-xxl-6 col-md-6 mb-3">
-                                            <label class="form-label">Start Date</label>
-                                            <input type="date" class="form-control"  name="start_date" id="start_date">
-                                    </div>
-                                    <div class="col-xl-2 col-xxl-6 col-md-6 mb-3">
-                                        <label class="form-label">End Date</label>
-                                        <input type="date" class="form-control"  name="end_date" id="end_date">
-                                    </div>
-                                    <div class="col-10">
-                                        <input type="submit" value="print" class="btn btn-primary" >
-                                        <span><i
-                                            class="fa fa-print"></i>
-                                    </span> 
-                                        {{--  <a href="{{ route('admin.') }}" class="btn btn-primary"><span><i
-                                                    class="fa fa-print"></i>
-                                            </span> Cetak </button></a>  --}}
-                                        </form>
+                                                </div>
+                                                <div class="mb-3 col-md-6">
+                                                    <label class="form-label">End Date</label>
+                                                    <input type="date" class="form-control" name="end_date"
+                                                        id="end_date">
+                                                </div>
+                                                <div class="col-10">
+                                                    <input type="submit" value="Cetak" class="btn btn-primary">
+                                                </div>
+                                            </form>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -174,22 +153,9 @@
                                                     <td>{{ $u->instansi }}</td>
                                                     <td>{{ $u->keterangan }}</td>
                                                     <td>
-                                                        {{-- <a href="#"><span class="fas fa-eye me-2"></span>View Details</a>
-                                                            <button class="btn btn-link text-dark dropdown-toggle dropdown-toggle-split m-0 p-0" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                                <span class="icon icon-sm">
-                                                                    <span class="fas fa-ellipsis-h icon-dark"></span>
-                                                                </span>
-                                                                <span class="visually-hidden">Toggle Dropdown</span>
-                                                            </button> --}}
-                                                        {{-- <div class="dropdown-menu py-0"> --}}
                                                         <button type="button" class="btn btn-primary mb-2"
                                                             data-bs-toggle="modal"
                                                             data-bs-target="#bd-example-modal-lg{{ $u->id }}">Details</button>
-
-                                                        {{-- <a class="dropdown-item" href="#"><span class="fas fa-edit me-2"></span>Edit</a>
-
-                                                                <a class="dropdown-item text-danger rounded-bottom" href="#"><span class="fas fa-trash-alt me-2"></span>Remove</a> --}}
-                                                        {{-- </div> --}}
                                                     </td>
                                                 </tr>
 
