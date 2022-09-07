@@ -22,12 +22,11 @@
             position: relative;
             height: 29.7cm;
             width: 100%;
-            margin: 0 auto;
+            margin: auto;
             color: #001028;
             background: #FFFFFF;
-            font-family: Poppins, sans-serif;
-            font-size: 14px;
-            font-family: Arial;
+            font-size: 13px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
         }
 
         header {
@@ -57,9 +56,9 @@
 
             font-weight: 400;
             line-height: 1.5;
-            color: #858796;
+            color: #000;
             font-family: Verdana, Geneva, Tahoma, sans-serif;
-            margin-top: 10%;
+            margin-top: 6%;
             /* font-size: 2.4em; */
             line-height: 1.4em;
             font-weight: bold;
@@ -78,15 +77,17 @@
             font-weight: normal;
             text-align: center;
             margin-top: -15px;
+            margin-bottom: 5%;
             /*margin: 0 0 20px 0;*/
             background: url(dimension.png);
         }
 
         table {
-            width: 10%;
+            width: 95%;
             margin-top: 5%;
             border-collapse: collapse;
             border-spacing: 0;
+            margin: auto;
         }
 
         table1 {
@@ -94,24 +95,32 @@
             border: none;
         }
 
-        table th,
-        table td {
-            text-align: center;
-            font-family: Verdana, Geneva, Tahoma, sans-serif
+        
+
+        tr {
+              text-align: center;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
         }
 
+
         table th {
-            padding: 10px 20px;
-            color: #5D6975;
-            border-bottom: 1px solid #858796;
+            padding: 9px 22px;
+            color: #000;
             white-space: nowrap;
             font-weight: bold;
             border-collapse: collapse;
+            background-color: #abcdef;
         }
 
+        tr{
+            border-bottom: 0.5px #000 solid;
+        }
+        table{
+            border: 0.5px #000 solid
+        }
         table td {
             padding: 10px;
-            text-align: center;            
+            text-align: center;
         }
 
         p {
@@ -147,7 +156,7 @@
     <h3>{{ $tanggal1 }} s/d {{ $tanggal2 }}</h3>
     <main>
         <div class="table-responsive" style="overflow-x:auto">
-            <table class="table">
+            <table style="background-color: #ffffff; filter: alpha(opacity=40); opacity: 0.95;">
                 <thead>
                     <tr>
                         <th>No</th>
@@ -173,7 +182,7 @@
                             @endforeach
                             <td>{{ $u->instansi }}</td>
                             <td>{{ $u->keterangan }}</td>
-                        <tr>
+                        </tr>
                     @endforeach
                 </tbody>
             </table>
