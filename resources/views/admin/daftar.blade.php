@@ -43,6 +43,16 @@
             align-items: center;
         }
 
+        .footer {
+            font-family: "Times New Roman", Times, serif;
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+            font-size: 11px;
+        }
+
         h2 {
 
             font-weight: 400;
@@ -76,6 +86,11 @@
             margin-top: 5%;
             border-collapse: collapse;
             border-spacing: 0;
+        }
+
+        table1 {
+            width: 100%;
+            border: none;
         }
 
         table th,
@@ -122,7 +137,7 @@
         <img src="assets/images/logo-4.png" class="topright">
     </header>
     <h2 style="text-decoration: underline;">DAFTAR TAMU</h2>
-    <h3>{{$tanggal1}} s/d {{$tanggal2}}</h3>
+    <h3>{{ $tanggal1 }} s/d {{ $tanggal2 }}</h3>
     <main>
         <div class="table-responsive" style="overflow-x:auto">
             <table class="table">
@@ -157,6 +172,14 @@
             </table>
         </div>
     </main>
+    <div class="footer">
+        <p style="font-weight: bold; font-size: 13px; margin-bottom: 0px;" >PT. PAL INDONESIA</p>
+        <p>Kantor Pusat : UJUNG, SURABAYA 60155, PO BOX 1134 INDONESIA</p>
+        <p>Telp : +62-31-3292275 (HUNTING) FAX : +62-31-3292530, 3292493, 3292516 Email : headoffice@pal.co.id Web Site
+            : http//www.pal.co.id</p>
+        <p>Kantor Perwakilan : JL. TANAH ABANG IV27, JAKARTA 10100, PHONE : +62-21-3846833, FAX : +62-21-3643717 E-mail
+            : jakartabranch@pal.co.id</p>
+    </div>
 
 </body>
 
