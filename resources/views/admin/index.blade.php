@@ -103,19 +103,21 @@
                                     </div> --}}
                                             <form method="POST" action="/cetak" enctype="multipart/form-data">
                                                 @csrf
-                                                <div class="mb-3 col-md-6">
-                                                    <label class="form-label">Start Date</label>
-                                                    <input type="date" class="form-control" name="start_date"
-                                                        id="start_date">
+                                                <div class="row align-items-center g-3">
+                                                    <div class="col-auto">
+                                                        <label class="form-label">Start Date</label>
+                                                        <input type="date" class="form-control" name="start_date"
+                                                            id="start_date">
 
-                                                </div>
-                                                <div class="mb-3 col-md-6">
-                                                    <label class="form-label">End Date</label>
-                                                    <input type="date" class="form-control" name="end_date"
-                                                        id="end_date">
-                                                </div>
-                                                <div class="col-10">
-                                                    <input type="submit" value="Cetak" class="btn btn-primary">
+                                                    </div>
+                                                    <div class="col-auto">
+                                                        <label class="form-label">End Date</label>
+                                                        <input type="date" class="form-control" name="end_date"
+                                                            id="end_date">
+                                                    </div>
+                                                    <div class="col-10">
+                                                        <input type="submit" value="Cetak" class="btn btn-primary">
+                                                    </div>
                                                 </div>
                                             </form>
                                         </div>
