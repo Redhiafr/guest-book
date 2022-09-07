@@ -77,6 +77,7 @@
             /* line-height: 1.4em; */
             font-weight: normal;
             text-align: center;
+            margin-top: -15px;
             /*margin: 0 0 20px 0;*/
             background: url(dimension.png);
         }
@@ -110,7 +111,7 @@
 
         table td {
             padding: 10px;
-            text-align: center;
+            text-align: center;            
         }
 
         .topright {
