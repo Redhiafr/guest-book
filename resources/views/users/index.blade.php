@@ -47,7 +47,7 @@
                                     </span>
                                     <div class="media-body ms-1">
                                         <p class="mb-2">Tamu Hari Ini</p>
-                                        <h3 class="mb-0 text-black font-w600">{{ $guests->count() }} </h3>
+                                        <h3 class="mb-0 text-black font-w600">{{ $current_date->count() }} </h3>
                                     </div>
                                 </div>
                             </div>
@@ -62,7 +62,7 @@
                                     </span>
                                     <div class="media-body ms-1">
                                         <p class="mb-2">Tamu Minggu Ini</p>
-                                        <h3 class="mb-0 text-black font-w600">{{ $guests->count() }}</h3>
+                                        <h3 class="mb-0 text-black font-w600">{{ $current_week->count() }}</h3>
                                     </div>
                                 </div>
                             </div>

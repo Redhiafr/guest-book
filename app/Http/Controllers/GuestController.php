@@ -21,7 +21,11 @@ class GuestController extends Controller
         $guests = Guest::latest()->paginate(10);
         $data = Guest::latest()->paginate(3);
         $category = Category::all();
-        return view('admin.index', compact('guests', 'data', 'category'))
+
+        $current_date = Guest::whereDate('created_at', Carbon::today())->get(['nama','created_at']);
+        $current_week = Guest::whereBetween('created_at', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])->get();
+
+        return view('admin.index', compact('guests', 'data', 'category', 'current_week', 'current_date'))
             ->with('i', (request()->input('page', 1) - 1) * 10);
     }
 
