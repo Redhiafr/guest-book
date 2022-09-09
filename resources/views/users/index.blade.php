@@ -38,7 +38,7 @@
             <div class="row">
                 <!--Total Visitor-->
                 <div class="row">
-                    <div class="col-xl-6 col-sm-6">
+                    <div class="col-xl-4 col-sm-4">
                         <div class="widget-stat card">
                             <div class="card-body">
                                 <div class="media align-items-center">
@@ -53,7 +53,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-6 col-sm-6">
+                    <div class="col-xl-4 col-sm-4">
                         <div class="widget-stat card">
                             <div class="card-body">
                                 <div class="media align-items-center">
@@ -63,6 +63,21 @@
                                     <div class="media-body ms-1">
                                         <p class="mb-2">Tamu Minggu Ini</p>
                                         <h3 class="mb-0 text-black font-w600">{{ $current_week->count() }}</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-sm-4">
+                        <div class="widget-stat card">
+                            <div class="card-body">
+                                <div class="media align-items-center">
+                                    <span class="me-4">
+                                        <i class="flaticon-381-user-7"></i>
+                                    </span>
+                                    <div class="media-body ms-1">
+                                        <p class="mb-2">Tamu Bulan Ini</p>
+                                        <h3 class="mb-0 text-black font-w600">{{ $current_month->count() }} </h3>
                                     </div>
                                 </div>
                             </div>

@@ -56,178 +56,205 @@
     <div class="content-body rightside-event">
         <!-- row -->
         <div class="container-fluid">
+            <!--Total Visitor-->
             <div class="row">
-                <!--Total Visitor-->
-                <div class="row">
-                    <div class="col-xl-6 col-sm-6">
-                        <div class="widget-stat card">
-                            <div class="card-body">
-                                <div class="media align-items-center">
-                                    <span class="me-4">
-                                        <i class="flaticon-381-user-7"></i>
-                                    </span>
-                                    <div class="media-body ms-1">
-                                        <p class="mb-2">Tamu Hari Ini</p>
-                                        <h3 class="mb-0 text-black font-w600">{{ $current_date->count() }} </h3>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-6 col-sm-6">
-                        <div class="widget-stat card">
-                            <div class="card-body">
-                                <div class="media align-items-center">
-                                    <span class="me-4">
-                                        <i class="flaticon-381-user-7"></i>
-                                    </span>
-                                    <div class="media-body ms-1">
-                                        <p class="mb-2">Tamu Minggu Ini</p>
-                                        <h3 class="mb-0 text-black font-w600">{{ $current_week->count() }}</h3>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--Total Visitor-->
-                    <div class="col-12">
-                        <div class="card">
-                            <div class="card-header">
-                                <h4 class="card-title">Daftar Tamu</h4>
-                            </div>
-                            <div class="col-xl-6 col-lg-12">
-                                <div class="card-body">
-                                    <div class="basic-form">
-                                        <div class="row">
-                                            {{-- <div class="col-span-2 flex-justify-end" style="text-align: right">
-                                    </div> --}}
-                                            <form method="POST" action="/cetak" enctype="multipart/form-data">
-                                                @csrf
-                                                <div class="row align-items-center g-3">
-                                                    <div class="col-auto">
-                                                        <label class="form-label">Start Date</label>
-                                                        <input type="date" class="form-control" name="start_date"
-                                                            id="start_date">
-
-                                                    </div>
-                                                    <div class="col-auto">
-                                                        <label class="form-label">End Date</label>
-                                                        <input type="date" class="form-control" name="end_date"
-                                                            id="end_date">
-                                                    </div>
-                                                    <div class="col-10">
-                                                        <input type="submit" value="Cetak" class="btn btn-primary">
-                                                    </div>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="card-body">
-                                <div class="table-responsive">
-                                    <table id="example" class="display" style="min-width: 845px">
-                                        <thead>
-                                            <tr>
-                                                <th>No.</th>
-                                                <th>Nama</th>
-                                                <th>No.Telepon</th>
-                                                <th>Tujuan</th>
-                                                <th>Kategori</th>
-                                                <th>Nama Instansi</th>
-                                                <th>Keterangan</th>
-                                                <th>Action</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            @foreach ($guests as $u)
-                                                <tr>
-                                                    <td>{{ $loop->iteration }}</td>
-                                                    <td>{{ $u->nama }}</td>
-                                                    <td>{{ $u->telp }}</td>
-                                                    <td>{{ $u->tujuan }}</td>
-                                                    @foreach ($category as $cat)
-                                                        @if ($cat->id == $u->kategori_id)
-                                                            <td>{{ $cat->nama_kategori }}</td>
-                                                        @endif
-                                                    @endforeach
-                                                    <td>{{ $u->instansi }}</td>
-                                                    <td>{{ $u->keterangan }}</td>
-                                                    <td>
-                                                        <button type="button" class="btn btn-primary mb-2"
-                                                            data-bs-toggle="modal"
-                                                            data-bs-target="#bd-example-modal-lg{{ $u->id }}">Details</button>
-                                                    </td>
-                                                </tr>
-
-                                                <div class="modal fade bd-example-modal-lg"
-                                                    id="bd-example-modal-lg{{ $u->id }}" tabindex="-1"
-                                                    role="dialog" aria-hidden="true">
-                                                    <div class="modal-dialog modal-lg">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <h5 class="modal-title">Detail Tamu</h5>
-                                                                <button type="button" class="btn-close"
-                                                                    data-bs-dismiss="modal">
-                                                                </button>
-                                                            </div>
-                                                            <div class="modal-body">
-                                                                <div class="mb-3">
-                                                                    <label for="disabledTextInput">Nama</label>
-                                                                    <input type="text" id="disabledTextInput"
-                                                                        class="form-control"
-                                                                        placeholder="{{ $u->nama }}" disabled>
-                                                                </div>
-                                                                <div class="mb-3">
-                                                                    <label for="disabledTextInput">No Telp.</label>
-                                                                    <input type="text" id="disabledTextInput"
-                                                                        class="form-control"
-                                                                        placeholder="{{ $u->telp }}" disabled>
-                                                                </div>
-                                                                <div class="mb-3">
-                                                                    <label for="disabledTextInput">Tujuan</label>
-                                                                    <input type="text" id="disabledTextInput"
-                                                                        class="form-control"
-                                                                        placeholder="{{ $u->tujuan }}" disabled>
-                                                                </div>
-                                                                <div class="mb-3">
-                                                                    <label for="disabledTextInput">Kategori</label>
-                                                                    <input type="text" id="disabledTextInput"
-                                                                        class="form-control"
-                                                                        @foreach ($category as $cat) @if ($cat->id == $u->kategori_id)
-                                                                        placeholder="{{ $cat->nama_kategori }}" disabled>
-                                                                        @endif @endforeach
-                                                                        </div>
-                                                                    <div class="mb-3">
-                                                                        <label for="disabledTextInput">Nama
-                                                                            Instansi</label>
-                                                                        <input type="text" id="disabledTextInput"
-                                                                            class="form-control"
-                                                                            placeholder="{{ $u->instansi }}" disabled>
-                                                                    </div>
-                                                                    <div class="mb-3">
-                                                                        <label for="disabledTextInput">Keterangan</label>
-                                                                        <input type="text" id="disabledTextInput"
-                                                                            class="form-control"
-                                                                            placeholder="{{ $u->keterangan }}" disabled>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="modal-footer">
-                                                                    <button type="button" class="btn btn-danger light"
-                                                                        data-bs-dismiss="modal">Close</button>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                            @endforeach
-                                    </table>
+                <div class="col-xl-4 col-sm-4">
+                    <div class="widget-stat card">
+                        <div class="card-body">
+                            <div class="media align-items-center">
+                                <span class="me-4">
+                                    <i class="flaticon-381-user-7"></i>
+                                </span>
+                                <div class="media-body ms-1">
+                                    <p class="mb-2">Tamu Hari Ini</p>
+                                    <h3 class="mb-0 text-black font-w600">{{ $current_date->count() }} </h3>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <div class="col-xl-4 col-sm-4">
+                    <div class="widget-stat card">
+                        <div class="card-body">
+                            <div class="media align-items-center">
+                                <span class="me-4">
+                                    <i class="flaticon-381-user-7"></i>
+                                </span>
+                                <div class="media-body ms-1">
+                                    <p class="mb-2">Tamu Minggu Ini</p>
+                                    <h3 class="mb-0 text-black font-w600">{{ $current_week->count() }}</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-sm-4">
+                    <div class="widget-stat card">
+                        <div class="card-body">
+                            <div class="media align-items-center">
+                                <span class="me-4">
+                                    <i class="flaticon-381-user-7"></i>
+                                </span>
+                                <div class="media-body ms-1">
+                                    <p class="mb-2">Tamu Bulan Ini</p>
+                                    <h3 class="mb-0 text-black font-w600">{{ $current_month->count() }} </h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--Total Visitor-->
+
+                <!--Chart-->
+                <div class="col-sm-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="card-title">Chart Bulan ini</h4>
+                        </div>
+                        <div class="card-body">
+                            <canvas id="lineChart_2"></canvas>
+                        </div>
+                    </div>
+                </div>
+                <!--End Chart-->
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="card-title">Daftar Tamu</h4>
+                        </div>
+                        <div class="col-xl-6 col-lg-12">
+                            <div class="card-body">
+                                <div class="basic-form">
+                                    <div class="row">
+                                        {{-- <div class="col-span-2 flex-justify-end" style="text-align: right">
+                                    </div> --}}
+                                        <form method="POST" action="/cetak" enctype="multipart/form-data">
+                                            @csrf
+                                            <div class="row align-items-center g-3">
+                                                <div class="col-auto">
+                                                    <label class="form-label">Start Date</label>
+                                                    <input type="date" class="form-control" name="start_date"
+                                                        id="start_date">
+
+                                                </div>
+                                                <div class="col-auto">
+                                                    <label class="form-label">End Date</label>
+                                                    <input type="date" class="form-control" name="end_date"
+                                                        id="end_date">
+                                                </div>
+                                                <div class="col-10">
+                                                    <input type="submit" value="Cetak" class="btn btn-primary">
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table id="example" class="display" style="min-width: 845px">
+                                    <thead>
+                                        <tr>
+                                            <th>No.</th>
+                                            <th>Nama</th>
+                                            <th>No.Telepon</th>
+                                            <th>Tujuan</th>
+                                            <th>Kategori</th>
+                                            <th>Nama Instansi</th>
+                                            <th>Keterangan</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ($guests as $u)
+                                            <tr>
+                                                <td>{{ $loop->iteration }}</td>
+                                                <td>{{ $u->nama }}</td>
+                                                <td>{{ $u->telp }}</td>
+                                                <td>{{ $u->tujuan }}</td>
+                                                @foreach ($category as $cat)
+                                                    @if ($cat->id == $u->kategori_id)
+                                                        <td>{{ $cat->nama_kategori }}</td>
+                                                    @endif
+                                                @endforeach
+                                                <td>{{ $u->instansi }}</td>
+                                                <td>{{ $u->keterangan }}</td>
+                                                <td>
+                                                    <button type="button" class="btn btn-primary mb-2"
+                                                        data-bs-toggle="modal"
+                                                        data-bs-target="#bd-example-modal-lg{{ $u->id }}">Details</button>
+                                                </td>
+                                            </tr>
+
+                                            <div class="modal fade bd-example-modal-lg"
+                                                id="bd-example-modal-lg{{ $u->id }}" tabindex="-1"
+                                                role="dialog" aria-hidden="true">
+                                                <div class="modal-dialog modal-lg">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title">Detail Tamu</h5>
+                                                            <button type="button" class="btn-close"
+                                                                data-bs-dismiss="modal">
+                                                            </button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <div class="mb-3">
+                                                                <label for="disabledTextInput">Nama</label>
+                                                                <input type="text" id="disabledTextInput"
+                                                                    class="form-control"
+                                                                    placeholder="{{ $u->nama }}" disabled>
+                                                            </div>
+                                                            <div class="mb-3">
+                                                                <label for="disabledTextInput">No Telp.</label>
+                                                                <input type="text" id="disabledTextInput"
+                                                                    class="form-control"
+                                                                    placeholder="{{ $u->telp }}" disabled>
+                                                            </div>
+                                                            <div class="mb-3">
+                                                                <label for="disabledTextInput">Tujuan</label>
+                                                                <input type="text" id="disabledTextInput"
+                                                                    class="form-control"
+                                                                    placeholder="{{ $u->tujuan }}" disabled>
+                                                            </div>
+                                                            <div class="mb-3">
+                                                                <label for="disabledTextInput">Kategori</label>
+                                                                <input type="text" id="disabledTextInput"
+                                                                    class="form-control"
+                                                                    @foreach ($category as $cat) @if ($cat->id == $u->kategori_id)
+                                                                        placeholder="{{ $cat->nama_kategori }}" disabled>
+                                                                        @endif @endforeach
+                                                                    </div>
+                                                                <div class="mb-3">
+                                                                    <label for="disabledTextInput">Nama
+                                                                        Instansi</label>
+                                                                    <input type="text" id="disabledTextInput"
+                                                                        class="form-control"
+                                                                        placeholder="{{ $u->instansi }}" disabled>
+                                                                </div>
+                                                                <div class="mb-3">
+                                                                    <label for="disabledTextInput">Keterangan</label>
+                                                                    <input type="text" id="disabledTextInput"
+                                                                        class="form-control"
+                                                                        placeholder="{{ $u->keterangan }}" disabled>
+                                                                </div>
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-danger light"
+                                                                    data-bs-dismiss="modal">Close</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                        @endforeach
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
+
         </div>
     </div>
 
@@ -240,6 +267,7 @@
     <script src="{{ asset('/assets/js/plugins-init/datatables.init.js') }}"></script>
 
     <script src="{{ asset('assets/vendor/chart.js/Chart.bundle.min.js') }}"></script>
+    {{-- <script src="{{ asset('assets/js/plugins-init/chartjs-init.js') }}"></script> --}}
     <script src="{{ asset('assets/vendor/peity/jquery.peity.min.js') }}"></script>
     <script src="{{ asset('assets/vendor/apexchart/apexchart.js') }}"></script>
     <script src="{{ asset('assets/vendor/owl-carousel/owl.carousel.js') }}"></script>
@@ -267,6 +295,117 @@
     <script src="{{ asset('assets/js/deznav-init.js') }}"></script>
     <script src="{{ asset('assets/js/demo.js') }}"></script>
     <script src="{{ asset('assets/js/styleSwitcher.js') }}"></script>
+
+    <script type="text/javascript">
+        (function($) {
+
+            var labels = {{ Js::from($labels) }};
+            var guests = {{ Js::from($datacharts) }};
+
+            var dzSparkLine = function() {
+                let draw = Chart.controllers.line.__super__.draw; //draw shadow
+
+                var screenWidth = $(window).width();
+                var lineChart2 = function() {
+                    //gradient line chart
+                    if (jQuery('#lineChart_2').length > 0) {
+
+                        const lineChart_2 = document.getElementById("lineChart_2").getContext('2d');
+                        //generate gradient
+                        const lineChart_2gradientStroke = lineChart_2.createLinearGradient(500, 0, 100, 0);
+                        lineChart_2gradientStroke.addColorStop(0, "rgba(34, 47, 185, 1)");
+                        lineChart_2gradientStroke.addColorStop(1, "rgba(34, 47, 185, 0.5)");
+
+                        Chart.controllers.line = Chart.controllers.line.extend({
+                            draw: function() {
+                                draw.apply(this, arguments);
+                                let nk = this.chart.chart.ctx;
+                                let _stroke = nk.stroke;
+                                nk.stroke = function() {
+                                    nk.save();
+                                    nk.shadowColor = 'rgba(0, 0, 128, .2)';
+                                    nk.shadowBlur = 10;
+                                    nk.shadowOffsetX = 0;
+                                    nk.shadowOffsetY = 10;
+                                    _stroke.apply(this, arguments)
+                                    nk.restore();
+                                }
+                            }
+                        });
+
+                        lineChart_2.height = 100;
+
+                        new Chart(lineChart_2, {
+                            type: 'line',
+                            data: {
+                                defaultFontFamily: 'Poppins',
+                                labels: @json($labels),
+                                datasets: [{
+                                    label: "My First dataset",
+                                    data: @json($datacharts),
+                                    borderColor: lineChart_2gradientStroke,
+                                    borderWidth: "2",
+                                    backgroundColor: 'transparent',
+                                    pointBackgroundColor: 'rgba(34, 47, 185, 0.5)'
+                                }]
+                            },
+                            options: {
+                                legend: false,
+                                scales: {
+                                    yAxes: [{
+                                        ticks: {
+                                            beginAtZero: true,
+                                            max: 50,
+                                            min: 0,
+                                            stepSize: 10,
+                                            padding: 10
+                                        }
+                                    }],
+                                    xAxes: [{
+                                        ticks: {
+                                            padding: 5
+                                        }
+                                    }]
+                                }
+                            }
+                        });
+                    }
+                }
+
+                return {
+                    init: function() {},
+
+
+                    load: function() {
+
+                        lineChart2();
+
+                    },
+
+                    resize: function() {
+
+                        lineChart2();
+
+                    }
+                }
+
+            }();
+
+            jQuery(document).ready(function() {});
+
+            jQuery(window).on('load', function() {
+                dzSparkLine.load();
+            });
+
+            jQuery(window).on('resize', function() {
+                dzSparkLine.resize();
+                setTimeout(function() {
+                    dzSparkLine.resize();
+                }, 1000);
+            });
+
+        })(jQuery);
+    </script>
 
     </html>
 @endsection

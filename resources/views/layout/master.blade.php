@@ -45,10 +45,10 @@
 
     <link href="{{ asset('assets/vendor/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css') }}" rel="stylesheet" type="text/css" />
 
-    <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet" type="text/css" /> 
+    <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet" type="text/css" />
 
 
-    
+
 
 </head>
 
@@ -109,9 +109,10 @@
     <script src="{{ asset('assets/js/plugins-init/clock-picker-init.js') }}"></script>
     <script src="{{ asset('assets/js/plugins-init/jquery-asColorPicker.init.js') }}"></script>
     <script src="{{ asset('assets/js/plugins-init/material-date-picker-init.js') }}"></script>
-    <script src="{{ asset('assets/js/plugins-init/pickadate-init.js') }}"></script> 
+    <script src="{{ asset('assets/js/plugins-init/pickadate-init.js') }}"></script>
 
-    
+    {{-- <script src="{{ asset('assets/js/plugins-init/chartjs-init.js') }}"></script> --}}
+
     <script src="{{ asset('assets/js/custom.js') }}"></script>
     <script src="{{ asset('assets/js/deznav-init.js') }}"></script>
     <script src="{{ asset('assets/js/demo.js') }}"></script>

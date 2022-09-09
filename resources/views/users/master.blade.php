@@ -78,6 +78,8 @@
     <script src="{{ asset('assets/vendor/owl-carousel/owl.carousel.js') }}"></script>
     <script src="{{ asset('assets/js/dashboard/dashboard-1.js') }}"></script>
 
+    {{-- <script src="{{ asset('assets/js/plugins-init/chartjs-init.js') }}"></script> --}}
+
     <script src="{{ asset('assets/js/custom.js') }}"></script>
     <script src="{{ asset('assets/js/deznav-init.js') }}"></script>
     <script src="{{ asset('assets/js/demo.js') }}"></script>
