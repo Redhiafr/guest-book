@@ -13,7 +13,7 @@ class UserController extends Controller
     public function index()
     {
         $guests = Guest::latest()->paginate(10);
-        $data = Guest::latest()->paginate(3);
+        $data = Guest::latest()->paginate(10);
         $category = Category::all();
 
         $current_date = Guest::whereDate('created_at', Carbon::today())->get(['nama', 'created_at']);
@@ -24,7 +24,6 @@ class UserController extends Controller
 
         return view('users.index', compact('guests', 'data', 'category', 'current_date', 'current_week', 'current_month'))
             ->with('i', (request()->input('page', 1) - 1) * 10);
-        // return view('users.index', ['guests' =>Guest::index(), 'categories' =>Category::index()]);
     }
 
     /**

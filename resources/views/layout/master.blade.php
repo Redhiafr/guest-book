@@ -111,8 +111,6 @@
     <script src="{{ asset('assets/js/plugins-init/material-date-picker-init.js') }}"></script>
     <script src="{{ asset('assets/js/plugins-init/pickadate-init.js') }}"></script>
 
-    {{-- <script src="{{ asset('assets/js/plugins-init/chartjs-init.js') }}"></script> --}}
-
     <script src="{{ asset('assets/js/custom.js') }}"></script>
     <script src="{{ asset('assets/js/deznav-init.js') }}"></script>
     <script src="{{ asset('assets/js/demo.js') }}"></script>

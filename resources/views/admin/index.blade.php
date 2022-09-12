@@ -106,13 +106,23 @@
                 <!--Total Visitor-->
 
                 <!--Chart-->
-                <div class="col-sm-12">
+                {{-- <div class="col-sm-12">
                     <div class="card">
                         <div class="card-header">
                             <h4 class="card-title">Chart Bulan ini</h4>
                         </div>
                         <div class="card-body">
                             <canvas id="lineChart_2"></canvas>
+                        </div>
+                    </div>
+                </div> --}}
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="card-title">Basic Bar Chart</h4>
+                        </div>
+                        <div class="card-body">
+                            <canvas id="barChart_1"></canvas>
                         </div>
                     </div>
                 </div>
@@ -267,7 +277,6 @@
     <script src="{{ asset('/assets/js/plugins-init/datatables.init.js') }}"></script>
 
     <script src="{{ asset('assets/vendor/chart.js/Chart.bundle.min.js') }}"></script>
-    {{-- <script src="{{ asset('assets/js/plugins-init/chartjs-init.js') }}"></script> --}}
     <script src="{{ asset('assets/vendor/peity/jquery.peity.min.js') }}"></script>
     <script src="{{ asset('assets/vendor/apexchart/apexchart.js') }}"></script>
     <script src="{{ asset('assets/vendor/owl-carousel/owl.carousel.js') }}"></script>
@@ -304,49 +313,24 @@
 
             var dzSparkLine = function() {
                 let draw = Chart.controllers.line.__super__.draw; //draw shadow
-
                 var screenWidth = $(window).width();
-                var lineChart2 = function() {
-                    //gradient line chart
-                    if (jQuery('#lineChart_2').length > 0) {
+                var barChart1 = function() {
+                    if (jQuery('#barChart_1').length > 0) {
+                        const barChart_1 = document.getElementById("barChart_1").getContext('2d');
 
-                        const lineChart_2 = document.getElementById("lineChart_2").getContext('2d');
-                        //generate gradient
-                        const lineChart_2gradientStroke = lineChart_2.createLinearGradient(500, 0, 100, 0);
-                        lineChart_2gradientStroke.addColorStop(0, "rgba(34, 47, 185, 1)");
-                        lineChart_2gradientStroke.addColorStop(1, "rgba(34, 47, 185, 0.5)");
+                        barChart_1.height = 100;
 
-                        Chart.controllers.line = Chart.controllers.line.extend({
-                            draw: function() {
-                                draw.apply(this, arguments);
-                                let nk = this.chart.chart.ctx;
-                                let _stroke = nk.stroke;
-                                nk.stroke = function() {
-                                    nk.save();
-                                    nk.shadowColor = 'rgba(0, 0, 128, .2)';
-                                    nk.shadowBlur = 10;
-                                    nk.shadowOffsetX = 0;
-                                    nk.shadowOffsetY = 10;
-                                    _stroke.apply(this, arguments)
-                                    nk.restore();
-                                }
-                            }
-                        });
-
-                        lineChart_2.height = 100;
-
-                        new Chart(lineChart_2, {
-                            type: 'line',
+                        new Chart(barChart_1, {
+                            type: 'bar',
                             data: {
                                 defaultFontFamily: 'Poppins',
                                 labels: @json($labels),
                                 datasets: [{
                                     label: "My First dataset",
                                     data: @json($datacharts),
-                                    borderColor: lineChart_2gradientStroke,
-                                    borderWidth: "2",
-                                    backgroundColor: 'transparent',
-                                    pointBackgroundColor: 'rgba(34, 47, 185, 0.5)'
+                                    borderColor: 'rgba(34, 47, 185, 1)',
+                                    borderWidth: "0",
+                                    backgroundColor: 'rgba(34, 47, 185, 1)'
                                 }]
                             },
                             options: {
@@ -355,36 +339,33 @@
                                     yAxes: [{
                                         ticks: {
                                             beginAtZero: true,
+                                            stepSize: 5,
                                             max: 50,
-                                            min: 0,
-                                            stepSize: 10,
-                                            padding: 10
+                                            min: 0
                                         }
                                     }],
                                     xAxes: [{
-                                        ticks: {
-                                            padding: 5
-                                        }
+                                        // Change here
+                                        barPercentage: 1
                                     }]
                                 }
                             }
                         });
                     }
                 }
-
                 return {
                     init: function() {},
 
 
                     load: function() {
 
-                        lineChart2();
+                        barChart1();
 
                     },
 
                     resize: function() {
 
-                        lineChart2();
+                        barChart1();
 
                     }
                 }
