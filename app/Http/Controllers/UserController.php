@@ -12,7 +12,7 @@ class UserController extends Controller
 {
     public function index()
     {
-        $guests = Guest::all();
+        $guests = Guest::orderBy('created_at', 'DESC')->get();
         $data = Guest::latest()->paginate(10);
         $category = Category::all();
 
