@@ -1,5 +1,5 @@
 <div class="nav-header">
-    <a href="index.html" class="brand-logo">
+    <a href="{{ route('users.index') }}" class="brand-logo">
         <span>
             <img src="/assets/images/logo-2.png">
         </span>

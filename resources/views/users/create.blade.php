@@ -2,20 +2,22 @@
 @section('content')
     <div class="content-body">
         <div class="container-fluid">
-            <div class="row page-titles">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item active"><a href="javascript:void(0)">BUKU TAMU PT PAL INDONESIA</a></li>
-                </ol>
+
+            <div class="col-xl-8 col-xxl-8 mx-auto">
+                <div class="row page-titles ">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item active"><a href="javascript:void(0)">BUKU TAMU PT PAL INDONESIA</a></li>
+                    </ol>
+                </div>
             </div>
             <!-- row -->
             <div class="row">
-                <div class="col-xl-8 col-xxl-8 px-8">
+                <div class="col-xl-8 col-xxl-8 pb-5 mx-auto">
                     <div class="card">
                         <div class="card-header">
                             <h4 class="card-title">Data Tamu</h4>
                         </div>
                         <div class="card-body">
-
                             <div class="col-lg-12">
                                 <form method="POST" action="{{ route('users.store') }}" enctype="multipart/form-data">
                                     @csrf
@@ -70,6 +72,6 @@
     </div>
 
     <!--**********************************
-                         Content body end
-                        ***********************************-->
+                                 Content body end
+                                ***********************************-->
 @endsection
