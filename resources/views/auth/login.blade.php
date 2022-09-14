@@ -13,7 +13,7 @@
                                         <div class="text-center mb-3">
                                             <img src="public/assets/images/logo-full.png" alt="">
                                         </div>
-                                        <h4 class="text-center mb-4">Sign in your account</h4>
+                                        <h4 class="text-center mb-4">Login Admin Buku Tamu</h4>
                                         <form class="login-form" method="POST" action="{{ route('login') }}">
                                             @csrf
                                             <div class="form-group">
