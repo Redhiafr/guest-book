@@ -23,16 +23,13 @@
 
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/images/favicon.png') }}">
 
-    <link href="{{ asset('/assets/vendor/datatables/css/jquery.dataTables.min.css') }}" rel="stylesheet"
-        type="text/css" />
+    <link href="{{ asset('/assets/vendor/datatables/css/jquery.dataTables.min.css') }}" rel="stylesheet" type="text/css" />
 
     <link href="{{ asset('assets/vendor/chartist/css/chartist.min.css') }}" rel="stylesheet" type="text/css" />
 
-    <link href="{{ asset('assets/vendor/bootstrap-select/dist/css/bootstrap-select.min.css') }}" rel="stylesheet"
-        type="text/css" />
+    <link href="{{ asset('assets/vendor/bootstrap-select/dist/css/bootstrap-select.min.css') }}" rel="stylesheet" type="text/css" />
 
-    <link href="{{ asset('assets/vendor/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css') }}"
-        rel="stylesheet" type="text/css" />
+    <link href="{{ asset('assets/vendor/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css') }}" rel="stylesheet" type="text/css" />
 
     <link href="{{ asset('assets/css/styleUser.css') }}" rel="stylesheet" type="text/css" />
 
@@ -74,7 +71,6 @@
 
     <script src="{{ asset('assets/vendor/chart.js/Chart.bundle.min.js') }}"></script>
     <script src="{{ asset('assets/vendor/peity/jquery.peity.min.js') }}"></script>
-    <script src="{{ asset('assets/vendor/apexchart/apexchart.js') }}"></script>
     <script src="{{ asset('assets/vendor/owl-carousel/owl.carousel.js') }}"></script>
     <script src="{{ asset('assets/js/dashboard/dashboard-1.js') }}"></script>
 
