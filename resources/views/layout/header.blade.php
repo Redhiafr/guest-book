@@ -84,7 +84,7 @@
                                 </form>
                             </a>
                         </div>
-                        <div class="dropdown-menu dropdown-menu-end">
+                        {{-- <div class="dropdown-menu dropdown-item-end">
                             <a href="app_profile.html" class="dropdown-item ai-icon">
                                 <svg id="icon-user1" xmlns="http://www.w3.org/2000/svg" class="text-primary"
                                     width="18" height="18" viewBox="0 0 24 24" fill="none"
@@ -119,7 +119,7 @@
                                 </svg>
                                 <span class="ms-2">Logout </span>
                             </a>
-                        </div>
+                        </div> --}}
                     </li>
                     <li class="dropdown schedule-event-inner primary">
                         <a href="javascript:void(0)" class="btn btn-primary btn-rounded event-btn">
