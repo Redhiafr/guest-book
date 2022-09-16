@@ -8,7 +8,7 @@
             </li>
         <div class="copyright">
             <p>Buku Tamu PT. PAL Indonesia <br />© 2022 All Rights Reserved</p>
-            <p class="op5">Made with <span class="heart"></span> by Mahasiswa POLINEMA</p>
+            <p class="op5">Made with <span class="heart"></span> by Divisi Teknologi Informasi PT. PAL Indonesia</p>
         </div>
     </div>
 </div>

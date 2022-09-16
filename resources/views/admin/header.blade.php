@@ -11,6 +11,7 @@
         </div>
     </div>
 </div>
+<!--**********************************  Nav header end ***********************************-->
 <!--**********************************  Header start ***********************************-->
 <div class="header">
     <div class="header-content">
@@ -60,9 +61,25 @@
                     </li>
                     <li class="nav-item dropdown header-profile">
                         <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown">
-                            <img src="{{ asset('assets/images/profile/pic1.jpg') }}" width="20"
-                                alt="" />
+                            <img src="{{ asset('assets/images/profile/pic1.jpg') }}" width="20" alt="" />
                         </a>
+                        <div class="dropdown-menu dropdown-menu-end">
+                            <a href="{{ route('logout') }}" class="dropdown-item ai-icon"
+                                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                <svg id="icon-logout" xmlns="http://www.w3.org/2000/svg" class="text-danger"
+                                    width="18" height="18" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                                    <polyline points="16 17 21 12 16 7"></polyline>
+                                    <line x1="21" y1="12" x2="9" y2="12"></line>
+                                </svg>
+                                <span class="ms-2">Logout </span>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>
+                            </a>
+                        </div>
                     </li>
                     <li class="dropdown schedule-event-inner primary">
                         <a href="javascript:void(0)" class="btn btn-primary btn-rounded event-btn">
@@ -70,8 +87,7 @@
                                 xmlns="http://www.w3.org/2000/svg" class="scale5 me-0 mb-0 me-sm-2 mb-sm-1">
                                 <path
                                     d="M19 4H5C3.89543 4 3 4.89543 3 6V20C3 21.1046 3.89543 22 5 22H19C20.1046 22 21 21.1046 21 20V6C21 4.89543 20.1046 4 19 4Z"
-                                    stroke="white" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round" />
+                                    stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                                 <path d="M16 2V6" stroke="white" stroke-width="2" stroke-linecap="round"
                                     stroke-linejoin="round" />
                                 <path d="M8 2V6" stroke="white" stroke-width="2" stroke-linecap="round"
