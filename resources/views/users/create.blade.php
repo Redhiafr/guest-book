@@ -2,7 +2,6 @@
 @section('content')
     <div class="content-body">
         <div class="container-fluid">
-
             <div class="col-xl-8 col-xxl-8 mx-auto">
                 <div class="row page-titles ">
                     <ol class="breadcrumb">
@@ -72,6 +71,6 @@
     </div>
 
     <!--**********************************
-                                 Content body end
-                                ***********************************-->
+                                     Content body end
+                                    ***********************************-->
 @endsection

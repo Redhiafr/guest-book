@@ -21,7 +21,6 @@
                             <h6 class="mt-0 mb-3 fs-14"><a class="text-black">{{ $g->nama }}</a></h6>
                             <ul class="fs-14 list-inline mb-2 d-flex justify-content-between">
                                 <li>{{ $g->created_at }}</li>
-                                {{-- <li>561/650</li> --}}
                             </ul>
                         </div>
                     </div>
@@ -86,16 +85,6 @@
                 <!--Total Visitor-->
 
                 <!--Chart-->
-                {{-- <div class="col-sm-12">
-                    <div class="card">
-                        <div class="card-header">
-                            <h4 class="card-title">Chart Bulan ini</h4>
-                        </div>
-                        <div class="card-body">
-                            <canvas id="lineChart_2"></canvas>
-                        </div>
-                    </div>
-                </div> --}}
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
@@ -116,8 +105,6 @@
                             <div class="card-body">
                                 <div class="basic-form">
                                     <div class="row">
-                                        {{-- <div class="col-span-2 flex-justify-end" style="text-align: right">
-                                    </div> --}}
                                         <form method="POST" action="/cetak" enctype="multipart/form-data">
                                             @csrf
                                             <div class="row align-items-center g-3">
